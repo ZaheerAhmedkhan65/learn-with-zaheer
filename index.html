@@ -1,242 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./resources/css/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body,html{
-          height: 100%;
-          margin: 0;
-          font-family: Arial;
-        }
-        header{
-            width: 100%;
-            height: 20vh;
-            background-color: rgb(20, 18, 18);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .user-name{
-            display: flex;
-            align-items:center;
-            justify-content: center;
-        }
-        .profession{
-            display: flex;
-            align-items:center;
-            justify-content: center;
-            letter-spacing: 2px;
-        }
-        .button {
-            border: transparent;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            font-size: 2em;
-            cursor: pointer;
-            background-color: transparent;
-            color:rgba(255,255,255,0.6);
-            border-left: 6px solid #37FF8B;
-        }        
-        .button::before {
-            border-right: 6px solid #37FF8B;
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:#37ff8a5f; 
-            z-index: -1;
-            transition: transform 0.5s ease;
-            transform: scaleX(0);
-            transform-origin: left;
-        }
-        .button:hover {
-          border-left:none;
-          color: #37FF8B;
-        }
-        
-        .button:hover::before {
-            transform: scaleX(1);
-        }
-
-        .topnav{
-            color: white;
-            border: 1px solid;
-            background-color: rgb(51, 44, 44);
-            width: 100%;
-            height: 5vh;
-            display: flex;
-        }
-        .topnav ul{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-        }
-        li{
-            margin: 0px 10px;
-            padding: 5px 40px;
-            list-style: none;
-            border: 1px solid white;
-            width: auto;
-            height:max-content;
-        }
-        .menu-bar{
-            border: 1px solid white;
-            width: 30px;
-            height: 5px;
-            margin: 2px 0px;
-        }
-        .menu{
-            display: none;
-            border: none;
-        }   
-        .tablink {
-          background-color: #555;
-          color: white;
-          border: none;
-          border-radius: 10px;
-          outline: none;
-          cursor: pointer;
-          font-size: 17px;
-          width: 25%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        .tablink:hover {
-          background-color: #777;
-        }
-        
-        .tabcontent {
-          color: white;
-          display: none;
-          padding: 100px 20px;
-          height: 100%;
-          width: 100%;
-        }
-        
-        #Home {background-image:linear-gradient(to right, red,black);}
-        #Projects {background-color:rgb(4, 231, 4);}
-        #Education {background-color: rgb(154, 154, 4);}
-        #Contact {background-color:blue;}
-        @media(max-width:667px){
-            header{
-                width:667px;
-            }
-            .topnav{
-                width:667px;    
-            }
-            .topnav li:not(:first-child){
-                display:none;
-            }
-            .menu{
-                display: block;
-            }
-            .tabcontent{
-                width: 667px;
-                height: 100vh;
-            }
-
-        }
-    </style>
 </head>
 <body>
-<header>
-    <div class="wrapper">
-    <h1 class="user-name">Rana Zaheer Ahmed</h1>
-    <div class="profession">
-        <p>Future Software</p>
-        &nbsp;
-        <button class="button" data-text="Awesome">
-            <span class="actual">&nbsp;Developer&nbsp;</span>
-        </button>
-        &nbsp;
-        <p>InshALLAH</p>
-    </div>
-</div>
-</header>
-<nav class="topnav" id="myTopnav">
-    <ul>
-        <li class="menu">
-            <div class="menu-bar"></div>
-            <div class="menu-bar"></div>
-            <div class="menu-bar"></div>
-        </li>
-        <li class="tablink" onclick="openPage('Home', this, 'red')"id="defaultOpen" >Home</li>
-        <li class="tablink red" onclick="openPage('Projects', this, 'lightgreen')">Projects</li>
-        <li class="tablink" onclick="openPage('Education', this, 'yellow')">Education</li>
-        <li class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</li>
-     
-    </ul>
-</nav>
-
-<div id="Home" class="tabcontent">
-    <h3>Home</h3>
-    <h2>Welcome To InfinitiDev.com</h2>
-    <p>Here we are providing sevices to learn Web Development.</p>
-</div>
-  
-  <div id="Projects" class="tabcontent">
-    <h3>Projects:</h3>
-    <ul>
-        <li><h3>Week 1</h3></li>
-        <li><a href="../learn-with-zaheer/week-1/assignment_1.html">assignment-1</a></li>
-        <li><a href="../learn-with-zaheer/week-1/assignment_2.html">assignment-2</a></li>
-        <li><a href="../learn-with-zaheer/week-1/week-1.html">assignment-3</a></li>
-        <li><h3>Week 2</h3></li>
-        <li><a href="../learn-with-zaheer/week-2/assignment_3.html">assignment-1</a></li>
-        <li><a href="../learn-with-zaheer/week-2/assignment_4.html">assignment-2</a></li>
-        <li><h3>Week 3</h3></li>
-        <li><a href="../learn-with-zaheer/week-3/practice.html">assignment-1</a></li>
-        <li><a href="../learn-with-zaheer/week-3/form.html">assignment-2</a></li>
-        <li> <h3>Week 4</h3></li>
-        <li><a href="../learn-with-zaheer/week-4/learn_with_us.html">assignment-1</a></li>
-    </ul> 
-  </div>
-  
-  
-  <div id="Education" class="tabcontent">
-    <h3>Education</h3>
-    <ul>
-        <li><p>Web Development</p></li>
-        <li><p>BsIT</p></li>
-    </ul>
-  </div>
-  <div id="Contact" class="tabcontent">
-    <h3>Contact</h3>
-   <ul>
-    <li>Email:ranazaheerahmed65@gmail.com</li>
-    <li>Phone:03080944425</li>
-   </ul>
-  </div>
-  
-    <script>
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-
+    <div class="container">
+        <header class="res">
+          <div class="wrapper">
+            <h1 class="user-name">Rana Zaheer Ahmed</h1>
+            <div class="header-l-2">
+              <p>Future Software</p>
+              &nbsp;
+              <button class="button" data-text="Awesome">
+                <span class="actual">&nbsp;Developer&nbsp;</span>
+              </button>
+              &nbsp;
+              <p>InshALLAH</p>
+            </div>
+          </div>
+        </header>
+        <div class="side-nav res">
+          <a href="#Home" class="tablink" onclick="openPage('Home', this,'red')" id="defaultOpen">Home</a>
+          <a href="#Assignments" class="tablink"onclick="openPage('Assignments', this, ' #37FF8B')">Assignments</a>
+          <a href="#Education" class="tablink" onclick="openPage('Education', this, ' #37FF8B')">Education</a>
+          <a href="#Contact" class="tablink" onclick="openPage('Contact', this, ' #37FF8B')">Contact</a>
+        </div>
+        <div class="main res">
+    
+          <div id="Home" class="tabcontent">
+            <h3>Home</h3>
+            <h2>Welcome To InfinitiDev.com</h2>
+            <p>Here we are providing services to learn Web Development.</p>
+          </div>
+    
+          <div id="Assignments" class="tabcontent">
+            <h3 class="assignments">Assignments:<div class="box"><div class="wheel"><div class="axil"></div></div> <div class="wheel"><div class="axil"></div></div> </div></h3>
+            <div class="assignments-container">
+              <div id="week-1" class="assignment-detail-wrapper">
+                <div class="line">
+                  <div class="dot"><a href="../learn-with-zaheer/week-1/week-1.html">I</a></div>
+                  <div class="dot"><a href="../learn-with-zaheer/week-1/assignment_1.html">II</a></div>
+                  <div class="dot"><a href="../learn-with-zaheer/week-1/assignment_2.html">III</a></div>
+                </div>
+                <button>week 1</button>
+              </div>
+              <div id="week-2" class="assignment-detail-wrapper">
+                <div class="line">
+                  <div class="dot"><a href="../learn-with-zaheer/week-2/assignment_3.html">I</a></div>
+                  <div class="dot"><a href="../learn-with-zaheer/week-2/assignment_4.html">II</a></div>
+                </div>
+                <button>week 2</button>
+              </div>
+              <div id="week-3" class="assignment-detail-wrapper">
+                <div class="line">
+                  <div class="dot"><a href="../learn-with-zaheer/week-3/practice.html">I</a></div>
+                  <div class="dot"><a href="../learn-with-zaheer/week-3/form.html">II</a></div>
+                </div>
+                <button>week 3</button>
+              </div>
+              <div id="week-4"class="assignment-detail-wrapper">
+                <div class="line">
+                  <div class="dot"><a href="../learn-with-zaheer/week-4/learn-with-us.html">I</a></div>
+                </div>
+                <button>week 4</button>
+              </div>
+            </div>
+          </div>
+          <div id="Education" class="tabcontent">
+            <h3>Education</h3>
+            <ul class="table" >
+              <li class="tb-row">
+                <p>Web Development</p>
+                <button>Active</button>
+              </li>
+              <li class="tb-row">
+                <p>BsIT</p>
+                <button>Active</button>
+              </li>
+            </ul>
+          </div>
+    
+          <div id="Contact" class="tabcontent">
+            <h3>Contact</h3>
+            <ul class="contact-table">
+              <li class="contact-table-row"><i class="fa-regular fa-envelope email"></i> : <a href="mailto:ranazaheerahmed65@gmail.com">ranazaheerahmed65<span class="gmail">@gmail</span>.com</a></li>
+              <li class="contact-table-row"><i class="fa-brands fa-whatsapp whatsapp"></i> : 03080944425</li>
+              <li class="contact-table-row"><i class="fa-brands fa-discord discord"></i> : zaheerahmed65</li>
+              <li class="contact-table-row"><i class="fa-brands fa-youtube yt"></i>: <a href="https://www.youtube.com/channel/UC8-rj_oDuKJ8bY7-kmUNDqg"><span class="yt-link">@infinitiedev</span></a></li>
+          </ul>
+          </div>
+        </div>
+    
+        <footer class="res">
+          <p>&copy; 2024 Code with InfinitiDev.All Rights Reserved.</p>
+        </footer>
+      </div>
+      <script src="./resources/js/index.js"></script>
 </body>
 </html>

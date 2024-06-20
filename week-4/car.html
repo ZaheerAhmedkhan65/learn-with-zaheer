@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .car-body{
+            border: 1px solid transparent;
+            width: 120px;
+            height:89px;
+            position: relative;
+            animation-name: car;
+            animation-duration: 8s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes car {
+            0%{left: 0%;}
+            100%{left: 100%;}
+        }
+        .roof-container{
+            width:100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+        }
+        .car-roof{
+            width:85px;
+            height: 76px;
+            border: 1px solid black;
+            border-bottom: none;
+            background-color: red;
+            border-top-right-radius: 123px;
+            border-top-left-radius: 183px;
+            display: flex;
+            align-items:flex-start;
+            justify-content: center;
+        }
+        .window{
+            margin-top: 5px;
+            width: 60px;
+            height: 42px;
+            background-color: rgb(202, 234, 223);
+            border-top-right-radius: 123px;
+            border-top-left-radius: 183px;
+            border-bottom-right-radius: 2px;
+            border-bottom-left-radius: 10px;
+        }
+        .body-container{
+            border: 1px solid black;
+            width: 120px;
+            height: 29px;
+            position: relative;
+            bottom: 29px;
+            left: 1px;
+            border-left: none;
+            border-top:0px;
+            background-color:red;
+            border-top-right-radius:120px;
+            border-top-left-radius: 80px;
+        }
+        .head-light-container{ 
+            width: 8px;
+            height: 13px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            background-color:white;
+            position: relative;
+            top: 7px;
+            left: 106px;
+            transform: rotate(-40deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .head-light{
+            border: 1px solid black;
+            border-right: none;
+            background-color: rgb(255, 255, 0);
+            width: 7px;
+            height: 11px;
+            transform: rotate(5deg);
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            
+        }
+        .back-bumper{
+            border: 1px solid red;
+            width: 10px;
+            height: 4px;
+            background-color:red;
+            position: relative;
+            top:3.6px;
+            right: 6px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            transform: rotate(-10deg);
+        }
+        .silencer{
+            border: 1px solid black;
+            border-bottom: none;
+            border-right: none;
+            width: 7px;
+            height: 6px;
+            background-color: grey;
+            border-bottom-right-radius: 45px;
+            border-top-left-radius: 5px;
+            position: relative;
+            top: 6px;
+            right: 7.5px;
+
+        }
+        .wheels-container{
+            display: flex;
+            align-items:flex-end;
+            justify-content: space-evenly;
+        
+        }
+       
+        .wheel-cover{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            position: relative;
+            bottom: 10px;
+            right: 12px;
+        }
+        .wheel{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin:1px 0px 0px 2.6px;
+            background-color:black;
+            animation-name: wheels;
+            animation-duration: 0.5s;
+            animation-iteration-count:infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes wheels {
+            0%{ transform: rotate(0deg);}
+            25%{ transform: rotate(90deg);}
+            50%{ transform: rotate(180deg);}
+            75%{ transform: rotate(270deg);}
+            100%{ transform: rotate(360deg);}
+        }
+        .wheel-rim{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color:rgb(104, 103, 103);
+            display: flex;
+            justify-content:center;
+            
+        }
+        .rotation-identifier{
+            border: 1px solid black;
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            margin-top: 1px;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .axil{
+            border: 2px solid black; 
+            border-radius:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="car-body">
+        <div class="roof-container">
+        <div class="car-roof">
+            <div class="window"></div>
+        </div>
+        </div>
+        <div class="body-container">
+            <div class="head-light-container">
+                <div class="head-light"></div>
+            </div>
+            <div class="silencer">
+            </div>
+            <div class="back-bumper"></div>
+            <div class="wheels-container">
+                <div class="wheel-cover"><div class="wheel">
+                    <div class="wheel-rim">
+                        <div class="rotation-identifier">
+                            <div class="axil"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="wheel-cover">
+                    <div class="wheel">
+                        <div class="wheel-rim">
+                            <div class="rotation-identifier">
+                                <div class="axil">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

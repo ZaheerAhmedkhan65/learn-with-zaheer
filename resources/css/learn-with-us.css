@@ -59,6 +59,17 @@ header{
     width: 30px;
     height: 30px;
  }
+ .pop-over-btn{
+    position: relative;
+    left: 154px;
+ }
+ .pop-over-btn i{
+    font-size: 15px;
+ }
+ .see-all{
+    width: 38px;
+    height: 35px;
+ }
  a{
     text-decoration: none;
  }
@@ -91,7 +102,10 @@ header{
     gap: 20px;
     width: 100%;
     position: relative;
-    bottom: 225px;
+    bottom: 234px;
+}
+.nav-bar a{
+    color: black;
 }
 .cloud{
     position: relative;
@@ -152,6 +166,9 @@ header{
  }
  .instructors-row{
     height: 60px;
+ }
+ .progress{
+    height: 56px;
  }
  .progress-line {
     width:85%;
@@ -265,6 +282,8 @@ header{
  }
 .col-2-wrapper{
    height:100%;
+   position: relative;
+   bottom: 81px;
 }
  .radius{
     border-radius: 5px;
@@ -279,9 +298,11 @@ header{
  }
  .bg-lite-grey {
     background-color: rgba(215, 214, 214, 0.851);
+    padding: 2px 5px;
 }
 .bg-grey{
     background-color:  rgba(128, 128, 128, 0.466);
+    padding: 2px 5px;
 }
 .bg-white {
     background-color: white;
@@ -309,10 +330,12 @@ header{
 
 .bg-lite-teal {
     background-color: rgba(199, 247, 239, 0.801);
+    padding: 2px 5px;
 }
 
 .bg-lite-blue {
     background-color: rgba(223, 235, 246, 0.705);
+    padding: 2px 5px;
 }
 
 .crimson {
@@ -341,19 +364,61 @@ header{
 
 .yellow {
     background-color: rgb(207, 207, 6);
+    padding: 2px 5px;
 }
 
 .red {
     background-color: crimson;
+    padding: 2px 5px;
 }
 
 
 .bg-lite-crimson {
     background-color: rgba(252, 216, 223, 0.776);
+    padding:2px 5px;
 }
 
 .bg-lite-yellow {
     background-color: rgba(251, 235, 192, 0.948);
+    padding:2px 5px;
+}
+.box-shadow:hover {
+    box-shadow: 0px 5px 5px 5px rgb(144, 143, 143);
+    cursor: pointer;
+    position: relative;
+    bottom: 5px;
+}
+
+.box-color-blue:hover {
+    background-color: rgba(5, 98, 179, 0.466);
+    color: white;
+    cursor: pointer;
+}
+
+.box-color-teal:hover {
+    background-color: rgba(11, 177, 177, 0.466);
+    color: white;
+    cursor: pointer;
+}
+
+.box-color-crimson:hover {
+    background-color: rgba(220, 20, 60, 0.466);
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.box-color-paleyellow:hover {
+    background-color:rgba(250, 192, 31, 0.405);
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.box-color-grey:hover{
+    background-color: rgba(128, 128, 128, 0.368);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .f-fs-sb{
     display: flex;
@@ -422,6 +487,10 @@ header{
         flex-direction: row;
         gap: 5px;
     }
+    .pop-over-btn{
+       left: 0;
+       display: none;
+    }
     .row-wrapper{
         flex-direction:column;
     }
@@ -429,7 +498,9 @@ header{
         flex-direction: column;
         width: 100%;
     }
-
+    .col-2-wrapper{
+        bottom: 0px;
+    }
     .col-1-row-2{
         width: 100%;
     }

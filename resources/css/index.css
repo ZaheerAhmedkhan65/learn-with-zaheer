@@ -116,11 +116,8 @@ a{
   justify-content: center;
 }
 .axil{
-  border: 1px solid white;
-  background-color: white;
+  border: 2px solid white;
   border-radius: 50%;
-  width: 2px;
-  height: 1px;
 }
 @keyframes box {
   0%   {left:0px; top:0px;}

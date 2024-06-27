@@ -10,6 +10,7 @@ body{
     flex-direction: row;
     width: 100%;
     align-items: center;
+    overflow: hidden;
 }
 .content-wrapper{
  width: 95%;
@@ -73,19 +74,30 @@ header{
  a{
     text-decoration: none;
  }
+
  .menu{
-    width: 40px;
-    height: 30px;
-    background-color: white;
-    margin-top: 15px;
     display: none;
+    width: fit-content;
  }
- .bar{
-    border: 4px solid black;
-    margin: 4px 0px;
- }
+
+ .bar-1, .bar-2, .bar-3 {
+    width: 35px;
+    height: 5px;
+    background-color: #6e6e6e;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar-1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  .change .bar-2 {opacity: 0;}
+  
+  .change .bar-3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
  .nav-bar{
-    
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -98,19 +110,18 @@ header{
     display: flex;
     flex-direction: column;
     align-items:center;
-    font-size: 30px;
+    font-size: 1rem;
+    margin-top: 1px;
     gap: 20px;
     width: 100%;
     position: relative;
-    bottom: 234px;
+    bottom:301px;
 }
+
 .nav-bar a{
     color: black;
 }
-.cloud{
-    position: relative;
-    bottom: 220px;
-}
+
  .row-wrapper{
     width: 100%;
     height: 40%;
@@ -460,18 +471,20 @@ header{
     align-items: center;
     justify-content: flex-end;
 }
- @media(max-width:600px) {
+@media(max-width:1300px) {
     .container{
         flex-direction: column;
-        width: 110%;
+        column-gap: 30px;
     }
     .content-wrapper{
         align-items: center;
         margin-left: 0%;
+        margin-top: 45px;
     }
     header{
         flex-direction: column;
     }
+    
     .header-col-1{
      width: 100%;
     }
@@ -479,14 +492,30 @@ header{
      width: 100%;
     }
     .nav-bar{
+        display: flex;
+        align-items: center;
         flex-direction: row;
-        justify-content: space-evenly;
-        visibility: hidden;
+        gap: 10px;
+        width: 95%;
+        position: fixed;
+        top: 5px;
+        left: 2%;
     }
     .nav-bar-icon{
-        flex-direction: row;
-        gap: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction:row;
+        align-items:center;
+        font-size: 1rem;
+        padding: 10px 0px;
+        gap: 15px;
+        width: fit-content;
+        position: unset;
     }
+    #Top-nav{
+       visibility: hidden;
+     }
     .pop-over-btn{
        left: 0;
        display: none;
@@ -508,6 +537,31 @@ header{
         width: 100%;
     }
     .menu{
-        display: block;
+        display:block;
     }
- }
+}
+@media (max-width:700px) {
+
+    header img{
+        display: none;
+    }
+    .details-container{
+        flex-direction: column;
+    }
+    #Top-nav{
+       visibility: hidden;
+     }
+    .box{
+        width: 100%;
+    }
+    .current-activity{
+        flex-direction: column;
+    }
+    .completed-course{
+        width: 100%;
+    }
+    .video-course{
+        width: 100%;
+    }
+}
+

@@ -4,14 +4,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../resources/css/learn-with-us.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Document</title>
+    
 </head>
 <body>
     <div class="container">
         <nav class="nav-bar">
-           
-            <div class="nav-bar-icon bg-white">
+            <div class="menu" id="menu">
+                <div class="bar-1"></div>
+                <div class="bar-2"></div>
+                <div class="bar-3"></div>
+            </div>
+            <div class="nav-bar-icon bg-white" id="Top-nav">
                <a href="../index.html"> <i class="fa-solid fa-house box-color-blue blue"></i></a>
                 <a href="" class="fa-regular fa-envelope box-color-blue"></a>
                 <a href="" class="fa-brands fa-x-twitter box-color-blue"></a>
@@ -21,15 +26,10 @@
                 <a href="" class="fa-brands fa-windows box-color-blue"></a>
                 <a href="" class="fa-solid fa-print box-color-blue"></a>
                 <a href="" class="fa-solid fa-lock box-color-blue"></a>
-            </div>
-            <a href="" class="fa-solid fa-cloud-arrow-up box-color-blue cloud"></a>
+                <a href="" class="fa-solid fa-cloud-arrow-up box-color-blue cloud"></a>
+             </div>
         </nav>
         <div class="content-wrapper">
-            <div onclick="opennav()" class="menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
             <div class="main">
           <header>
             <div class="header-col-1 radius margin bg-teal">
@@ -153,7 +153,7 @@
                 <div class="f-c-sb margin-t-b">
                     <h4>Current Activity</h4>
                 </div>
-                <div class="f-c-sb white gap">
+                <div class="current-activity f-c-sb white gap">
                     <div class="completed-course f-col radius bg-pale-yellow">
                         <div class="margin">
                         <h2>450K+</h2>
@@ -471,8 +471,21 @@
           </footer>
         </div>
         </div>
-    <script>
-        
-    </script>
+        <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const menuButton = document.getElementById('menu');
+    const nav = document.getElementById('Top-nav');
+     nav.style.visibility="visible";
+    menuButton.addEventListener('click', function() {
+        if (nav.style.visibility === "visible") {
+            nav.style.visibility = "hidden";
+        } else {
+            nav.style.visibility = "visible";
+        }
+        menuButton.classList.toggle("change");
+    });
+});
+
+        </script>
 </body>
 </html>

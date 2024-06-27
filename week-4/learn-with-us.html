@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <nav class="nav-bar">
-            <div class="menu" id="menu">
+            <div class="menu"  id="menu" onclick="openNav()">
                 <div class="bar-1"></div>
                 <div class="bar-2"></div>
                 <div class="bar-3"></div>
@@ -472,20 +472,16 @@
         </div>
         </div>
         <script>
-     document.addEventListener("DOMContentLoaded", function() {
-    const menuButton = document.getElementById('menu');
-    const nav = document.getElementById('Top-nav');
-     nav.style.visibility="visible";
-    menuButton.addEventListener('click', function() {
-        if (nav.style.visibility === "visible") {
+  let menuButton = document.getElementById('menu');
+    let nav = document.getElementById('Top-nav');
+function openNav(){
+    if (nav.style.visibility === "visible") {
             nav.style.visibility = "hidden";
         } else {
             nav.style.visibility = "visible";
         }
         menuButton.classList.toggle("change");
-    });
-});
-
+    }
         </script>
 </body>
 </html>

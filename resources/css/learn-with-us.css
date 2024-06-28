@@ -254,6 +254,9 @@ header{
  .gap{
     gap: 10px;
  }
+ .margin-t-5{
+    margin-top: 5px;
+ }
  .margin-t-20{
     margin-top:20px;
  }
@@ -562,6 +565,12 @@ header{
     }
     .video-course{
         width: 100%;
+    }
+    footer{
+        font-size: 12px;
+    }
+    .purchase-now-btn{
+        display: none;
     }
 }
 

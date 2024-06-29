@@ -13,9 +13,9 @@ body{
     overflow: hidden;
 }
 .content-wrapper{
- width: 95%;
+ width: 97%;
  border: 2px solid transparent;
- margin-left: 5.4%;
+ margin-left: 3.4%;
 }
 header{
     width: 100%;
@@ -102,7 +102,7 @@ header{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    width: 5%;
+    width: 3%;
     font-size: 30px;
     position: fixed;
 }
@@ -500,7 +500,7 @@ header{
         flex-direction: row;
         gap: 10px;
         width: 95%;
-        position: fixed;
+        position:absolute;
         top: 5px;
         left: 2%;
     }
@@ -541,6 +541,9 @@ header{
     }
     .menu{
         display:block;
+    }
+    .progress-line{
+   width: 200%;
     }
 }
 @media (max-width:700px) {

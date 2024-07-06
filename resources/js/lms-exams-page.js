@@ -40,24 +40,29 @@ const htmlquestions = [
       correctAnswer: 0
   },
     {
-      question: "What is the purpose of the `head` element in an HTML document?",
+      question: "5:What is the purpose of the `head` element in an HTML document?",
       choices: ["To contain the main content of the document", "To contain meta-information about the document", "To create hyperlinks", "To add images"],
       correctAnswer: 1
     },
     {
-      question: "What is the difference between the `div` and `span` tags?",
+      question: "6:What is the difference between the `div` and `span` tags?",
       choices: ["`div` is inline, `span` is block-level", "`div` is for images, `span` is for text", "`div` is block-level, `span` is inline", "`div` is for links, `span` is for buttons"],
       correctAnswer: 2
     },
     {
-      question: "How do you add an image to an HTML page?",
+      question: "7:How do you add an image to an HTML page?",
       choices: ["img", "image", "images", "Img"],
       correctAnswer: 2
     },
     {
-      question: "What is the purpose of the `alt` attribute in an `<img>` tag?",
+      question: "8:What is the purpose of the `alt` attribute in an `<img>` tag?",
       choices: ["To provide alternative text for the image", "To specify the image width", "To link to an external stylesheet", "To set the background color"],
       correctAnswer: 0
+    },
+    {
+      question: "9:Which is correct body tag?",
+      choices: ["bodY", "BODY", "body", "Body"],
+      correctAnswer: 2
     },
   {
       question: "10: Which character is used to indicate an end tag?",

@@ -232,7 +232,7 @@ function updateCountdown() {
 
 function loadQuestion() {
   if (currentQuestionIndex >= currentQuiz.length) {
-    finishExam();
+    // finishExam();
     return;
   }
   const questionData = currentQuiz[currentQuestionIndex];

@@ -1,5 +1,6 @@
 const htmlquestions = [
-  {
+  {   
+      examType:"HTML",
       question: "1: What does HTML stand for?",
       choices: [
           "Hypertext Markup Language",
@@ -52,10 +53,10 @@ const htmlquestions = [
     {
       question: "7:How do you add an image to an HTML page?",
       choices: ["img", "image", "images", "Img"],
-      correctAnswer: 2
+      correctAnswer: 0
     },
     {
-      question: "8:What is the purpose of the `alt` attribute in an `<img>` tag?",
+      question: "8:What is the purpose of the `alt` attribute in an `img` tag?",
       choices: ["To provide alternative text for the image", "To specify the image width", "To link to an external stylesheet", "To set the background color"],
       correctAnswer: 0
     },
@@ -77,7 +78,8 @@ const htmlquestions = [
 ]
 ;
 const cssquestions = [
-  {
+  { 
+    examType:"CSS",
     question: "1:Which property is used to change the background color in CSS?",
     choices: ["color", "background-color", "bgcolor", "background"],
     correctAnswer: 1
@@ -130,7 +132,7 @@ const cssquestions = [
 ]
 ;
 const jsquestions = [
-  {
+  { examType:"JavaScript",
     question: "1:Which company developed JavaScript?",
     choices: ["Microsoft", "Sun Microsystems", "Netscape", "Oracle"],
     correctAnswer: 2
@@ -184,10 +186,8 @@ const jsquestions = [
 ;
 let currentQuiz=[];
 let currentQuestionIndex = 0;
-let countdownTimer;
 let globalTimer;
 let totalTime = 600;
-let countdownTime = 60;
 let rightAnswers=0;
 let wrongAnswers=0;
 let rightAnswersText=[];
@@ -195,7 +195,10 @@ let wrongAnswersText=[];
 let wrongAnswersTextkey=[];
 let questionTextmR=[];
 let questionTextmW=[];
-
+let grade=[];
+let notSelected=[];
+let isExamStarted=false;
+let isExamTypeLoaded =false;
 
 const resultElement = document.getElementById('result');
 function startGlobalTimer() {
@@ -212,34 +215,17 @@ let timeContainer =document.getElementById('globalTimer');
   if(totalTime==0){
     alert('exam end!');
     clearInterval(globalTimer);
-    clearInterval(countdownTimer);
   }
   timeContainer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
-function startCountdown() {
-  countdownTime = 60;
-  countdownTimer = setInterval(() => {
-    if (countdownTime > 0) {
-      countdownTime--;
-      updateCountdown();
-    } else {
-      nextQuestion();
-    }
-  }, 1000);
-}
-
-function updateCountdown() {
-  const minutes = Math.floor(countdownTime / 60);
-  const seconds = countdownTime % 60;
-  document.getElementById('countdown').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-}
-
 function loadQuestion() {
+  isExamTypeLoaded=true;
   if (currentQuestionIndex >= currentQuiz.length) {
     // finishExam();
     return;
   }
+  document.querySelector('.description').style.display="none";
   const questionData = currentQuiz[currentQuestionIndex];
   const questionContainer = document.getElementById('question');
   questionContainer.innerHTML = `
@@ -268,7 +254,9 @@ function getSelectedAnswer() {
 function getAnswer() {
   const selectedIndex = getSelectedAnswer();
   if (selectedIndex === -1) {
-   wrongAnswers++;
+   wrongAnswers++; 
+   questionTextmW.push(currentQuestionText);
+   wrongAnswersText.push("No answer selected");
     return false;
   }
 
@@ -289,15 +277,18 @@ function getAnswer() {
   }
   return true;
 }
-let startButton = document.getElementById('StartExam');
+
 function startExam(){
+  if(isExamTypeLoaded){
+  isExamStarted=true;
   clearInterval(globalTimer);
-  clearInterval(countdownTimer);
  startGlobalTimer();
- startCountdown();
+ document.querySelector('#StartExam').style.visibility="hidden";
  document.querySelector('.buttons-container').style.display="block";
+  }
 }
 function finishExam() {
+  if(isExamTypeLoaded){
   if (!confirm("Do you really want to finish the exam?")) return;
   clearInterval(globalTimer);
   const question = document.getElementById('question');
@@ -305,77 +296,100 @@ function finishExam() {
   const resultsArea = document.createElement("div");
   question.style.display="none";
   result.style.display="block";
+  document.querySelector('.buttons-container').style.display="none";
+  let percentage=(rightAnswers/currentQuiz.length)*100;
+  if(percentage>=90){
+    grade.push("A+");
+  }
+  else if(percentage>=70){
+    grade.push("A");
+  }
+  else if(percentage>= 50){
+    grade.push("B");
+  }
+  else if(percentage>=40){
+    grade.push("C");
+  }
+  else{
+    grade.push("F");
+  }
   resultsArea.innerHTML = `
     <p class="bg-blue padding-10">Results</p>
     <p class="bg-red text-al-lt padding-5-5" >Total Marks:${currentQuiz.length}</p>
     <p class="bg-green text-al-lt padding-5-5">Obtained Marks:${rightAnswers}</p>
+    <p class="bg-green text-al-lt padding-5-5">Percentage:${percentage}</p>
+    <p class="bg-green text-al-lt padding-5-5">Grade:${grade}</p>
     <button class="bg-info padding-5-5" onclick="showDetails()">Show Details</button>
   `;
   result.appendChild(resultsArea);
-
-  
-  clearInterval(countdownTimer);
   document.getElementById('questionContainer').style.display = "none";
 
   document.getElementById('showDetails').addEventListener('click', function() {
     resultsArea.style.display = "none";
   });
 }
+}
 function showDetails(){
  let  details =document.getElementById('details');
  const result = document.getElementById('result');
  result.style.display="none";
  details.innerHTML= `
- <p class="bg-blue padding-10">Questions:</p>
- <p class="bg-green text-al-lt padding-5-5">Question correct: ${questionTextmR.join(", ")}</p>
-  <p class="bg-red text-al-lt padding-5-5">question Incorrect: ${questionTextmW.join(", ")}</p>
- <p class="bg-blue padding-10">Answers:</p>
- <p class="bg-green text-al-lt padding-5-5">Marked Correct: ${rightAnswersText.join(", ")}</p>
- <p class="bg-red text-al-lt padding-5-5">Marked Incorrect: ${wrongAnswersText.join(", ")}</p>
- <p class="bg-info text-al-lt padding-5-5">Marked Incorrect Key: ${wrongAnswersTextkey.join(", ")}</p>
+ <p class="bg-blue padding-10">Marked Correct:</p>
+ <p class="bg-green text-al-lt padding-5-5">Question:${"<br>"} ${questionTextmR.join("<br>")}</p>
+ <p class="bg-green text-al-lt padding-5-5">Answer:${"<br>"} ${rightAnswersText.join("<br>")}</p> 
+ <p class="bg-blue padding-10">Marked Incorrect:</p>
+ <p class="bg-red text-al-lt padding-5-5">Question:${"<br>"} ${questionTextmW.join("<br>")}</p>
+ <p class="bg-red text-al-lt padding-5-5">Answer:${"<br>"} ${wrongAnswersText.join("<br>")}</p>
+ <p class="bg-info text-al-lt padding-5-5">Key:${"<br>"} ${wrongAnswersTextkey.join("<br>")}</p>
 `;
 }
 function nextQuestion() {
-  if (!getAnswer()) {
-    currentQuestionIndex++;
-  }
-  clearInterval(countdownTimer);
-  currentQuestionIndex++;
+  if(isExamStarted){
+  getAnswer();
+  currentQuestionIndex++ ;
   loadQuestion();
-  startCountdown();
+  
+  if (currentQuestionIndex>=currentQuiz.length){
+    document.querySelector('#endExam').style.visibility="visible";
+  }
+  else{
+    document.querySelector('#endExam').style.visibility="hidden";
+  }
+  }
 }
 function showExamType(){
-  let examType=["HTML","CSS","JavaScript"];
- let examtype = document.getElementById('type');
- let navLength=document.getElementById('nav');
- if(navLength.value=0){
-  examtype=examType[0];
- }
- else if(navLength.value=1){
-  examtype=examType[1];
- }
- else if(navLength.value=2){
-  examtype=examType[2];
- } 
+  let currentExamType = currentQuiz[0];
+ document.getElementById('type').textContent= currentExamType.examType;
 }
 function prevQuestion() {
   if (currentQuestionIndex > 0) {
-    clearInterval(countdownTimer);
     currentQuestionIndex--;
     loadQuestion();
-    startCountdown();
   }
 }
-// function showExamType(exam){
-// document.getElementById('type').textContent=exam;
-// }
-// showExamType(exam);
+
+window.onkeydown=(s)=>{
+  switch (s.key){
+    case 's':
+      startExam();
+    break;
+    case 'ArrowRight':
+        nextQuestion();
+      break;
+    case 'ArrowLeft':
+      prevQuestion();
+      break;
+    case 'Enter':
+      if(currentQuestionIndex>=currentQuiz.length){
+       finishExam();
+      }
+      break;
+    }
+}
 function initializeExam(quiz) {
   currentQuiz=quiz;
-  clearInterval(countdownTimer);
+  showExamType()
+  document.querySelector('#StartExam').style.visibility="visible";
   clearInterval(globalTimer);
   loadQuestion();
 }
-document.addEventListener('click', initializeExam(htmlquestions));
-document.addEventListener('click', initializeExam(cssquestions));
-document.addEventListener('click', initializeExam(jsquestions));

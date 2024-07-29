@@ -1,11 +1,13 @@
 body{
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
 }
 .main_container{
 border: 1px solid black;
 width: 100%;
 height:100%;
+overflow: hidden;
 background-image: linear-gradient(to top right,rgb(59, 34, 59),black,rgb(19, 19, 75),rgb(103, 103, 239));
 }
 .container{
@@ -124,6 +126,11 @@ color: white;
 position:relative;
 top:210px;
 left: 170px;     
+}
+#show_icon{
+    position: absolute;
+    top: 210.5px;
+    right: 146px;
 }
 #signin_button,#back_button{
 border: 1px solid rgb(175, 130, 218);

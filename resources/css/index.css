@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 
 .container {
@@ -359,6 +360,30 @@ footer {
 }
 
 @media (max-width:600px) {
+  .res {
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+
+  .side-nav {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  header {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .header-l-2{
+    margin: 0px 10px;
+    letter-spacing: 2px;
+  }
+  .main {
+    grid-row-start: 3;
+    grid-row-end: 11;
+  }
+}
+@media (max-width:380px) {
   .res {
     grid-column-start: 1;
     grid-column-end: 12;

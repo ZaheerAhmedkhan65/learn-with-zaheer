@@ -84,7 +84,19 @@ function back_to_login_page() {
     window.open("login_page.html");
 }
 function show_pass(){
-    document.getElementById('password').type="text";
+    let show = document.getElementById('show_icon');
+    let hide = document.getElementById('hide_icon');
+    let passType = document.getElementById('password');
+    if(passType.type=="text"){
+        passType.type="password";
+        hide.style.visibility="visible";
+        show.style.visibility="hidden";
+    }
+    else{
+        passType.type="text";
+        hide.style.visibility="hidden";
+        show.style.visibility="visible";
+    }
 }
 // function hide_pass(){
 // document.getElementById('password').type="password";

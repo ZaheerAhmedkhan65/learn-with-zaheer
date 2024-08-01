@@ -346,6 +346,22 @@ a{
   right:0;
   transition: 0.5s;
 }
+#week-6{
+  position: relative;
+  right:62px;
+}
+#week-6:hover{
+  right:0;
+  transition: 0.5s;
+}
+#week-7{
+  position: relative;
+  right:62px;
+}
+#week-7:hover{
+  right:0;
+  transition: 0.5s;
+}
 footer {
   grid-column-start: 1;
   grid-column-end: 12;

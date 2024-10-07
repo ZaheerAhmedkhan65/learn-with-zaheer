@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resources/css/buttons.css">
+    <style>
+        .car-wrapper{
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 100px;
+            animation-name: car;
+            animation-duration: 15s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes car {
+            0% { left:0; }
+            100% { left: 1400px; }
+        }
+        .car-roof{
+            display: flex;
+            margin: 0px 0px 0px 13px;
+        }
+        .roof{
+            width: 63px;
+            height: 7px;
+            background-color: teal;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        .car-top{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .front{
+            border-bottom: 25px solid teal;
+            border-left: 25px solid transparent;
+        }
+        .back{
+            border-bottom: 25px solid teal;
+            border-right: 12px solid transparent;        
+        }
+        .mirror {
+            width: 60px;
+            background-color: teal;
+            overflow: hidden;
+        }
+        .bg{
+    border-bottom: 25px solid rgb(213, 249, 249);
+    border-left: 10px solid transparent;
+    border-right: 7px solid transparent;
+        }
+        .body-wrapper{
+            width: 180px;
+        }
+        .car-body{
+            display: flex;
+            align-items: center;
+        }
+        .car-top-body{
+            display: flex;
+        }
+        .body{
+            width: 100%;
+            background-color: teal;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            height: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        .wheels-wrapper{
+            width: 115px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin: 3px 0px;
+        }
+        .wheel{
+            width: 25px;
+            height: 25px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1px 0px;
+            animation-name: wheels;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes wheels {
+          0%{transform: rotate(0deg);}
+          25%{transform: rotate(90deg);}
+          50%{transform: rotate(180deg);}
+          75%{transform: rotate(270deg);}
+          100%{transform: rotate(360deg);}            
+        }
+        .wheel-cover{
+            background-color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 28px;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .ind{     
+            border: 1px solid black;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border-bottom: transparent;
+            border-right: transparent;
+            border-left: transparent;
+            margin-top: 2px;
+        }
+        .rim{
+            width: 12px;
+            height: 12px;
+            background-color:rgb(25, 240, 240);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .light-cover{
+            background-color: white;
+            width: 8px;
+            height: 10px;
+            margin: -7px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        .light{
+            background-color:yellow;
+            width: 8px;
+            height: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        .signal-tower-wrapper{
+            display: flex;
+            width: 60%;
+            position: relative;
+            top: 32px;
+            right: 28px;
+        }
+        .signal-tower{
+            border: 1px solid black;
+            height: 20px;
+            border-top-left-radius: 1px;
+            border-top-right-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="car-wrapper">
+        <div class="signal-tower-wrapper">
+            <div class="signal-tower"></div>
+        </div>
+        <div class="car-top">
+            <div class="car-roof"> 
+                <div class="roof"></div>
+            </div>
+            <div class="car-top-body">
+        <div class="front"></div>
+        <div class="mirror">
+            <div class="bg"></div>
+        </div>
+        <div class="back"></div>
+    </div>
+        </div>
+      
+        <div class="car-body">
+            <div class="body-wrapper">
+          <div class="body"></div>
+          <div class="body">
+            <div class="wheels-wrapper">
+                <div class="wheel-cover">
+                <div class="wheel">
+                    <div class="rim"><div class="ind"></div></div>
+                </div>
+            </div>
+            <div class="wheel-cover">
+                
+                <div class="wheel">
+                    <div class="rim"><div class="ind"></div></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="light-cover">
+        <div class="light"></div>
+    </div>
+    </div>
+</div>
+<div class="buttonsContainer">
+    <button><a href="../week-6/login_page.html">Previous</a></button>
+   <button><a href="../week-7/operators.html">Next</a></button>
+</div>
+</body>
+</html>

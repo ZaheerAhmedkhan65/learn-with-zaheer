@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Student</title>
+  <style>
+    .formWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #studentForm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #studentForm select,
+    div,
+    div input,
+    label {
+      width: 100%;
+      padding: 12px 0px;
+    }
+
+    #studentList {
+      border: 1px solid;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .filterButtons {
+      width: fit-content;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    #studentList tr td,
+    th {
+      border: 1px solid;
+      padding: 5px 10px;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Add New Student</h1>
+  <div class="formWrapper">
+    <form id="studentForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+      </div>
+      <select name="gender" id="gender" required>
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <div>
+        <label for="DOB">Date Of Birth:</label>
+        <input type="date" id="DOB" required>
+      </div>
+      <button type="button" onclick="addStudent()">Add Student</button>
+    </form>
+  </div>
+  <div class="d-flex align-center justify-content-between">
+    <h2>Students List</h2>
+    <select class="filterMethod" id="filterMethod">
+      <option value="">Filter By</option>
+      <option value="gender">Gender</option>
+      <option value="age">Age</option>
+    </select>
+  </div>
+  <div class="filterButtons"></div>
+  <table id="studentList">
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>
+  </table>
+
+  <script>
+    class Student {
+      constructor(name, gender, dob) {
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+      }
+      age() {
+        const today = new Date();
+        const dateOfBirth = new Date(this.dob);
+        let age = today.getFullYear() - dateOfBirth.getFullYear();
+        const m = today.getMonth() - dateOfBirth.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dateOfBirth.getDate())) {
+          age--;
+        }
+        return age;
+      }
+    }
+
+    const students = [];
+
+    function addStudent() {
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('DOB').value;
+      const gender = document.getElementById("gender").value;
+
+      if (!name || !dob || !gender) {
+        return;
+      }
+
+      const newStudent = new Student(capitalizeName(name), gender, dob);
+      students.push(newStudent);
+      updateStudentList();
+      document.getElementById('studentForm').reset();
+    }
+
+    function capitalizeName(name) {
+      return name.split(" ").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+    }
+
+    function updateStudentList() {
+      const studentList = document.getElementById('studentList');
+      studentList.innerHTML = `<tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>`;
+
+      students.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+      <td>${student.name}</td>
+      <td>${student.gender}</td>
+      <td>${student.age()}</td>`;
+        studentList.appendChild(tr);
+      });
+    }
+
+    function filterByGender(gender) {
+      const studentList = document.getElementById('studentList');
+      const filteredStudents = students.filter(student => student.gender === gender);
+
+      studentList.innerHTML = `<tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>`;
+
+      filteredStudents.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+      <td>${student.name}</td>
+      <td>${student.gender}</td>
+      <td>${student.age()}</td>`;
+        studentList.appendChild(tr);
+      });
+    }
+
+    function filterByAge(minAge) {
+      const studentList = document.getElementById('studentList');
+      const filteredStudents = students.filter(student => student.age() >= minAge);
+
+      studentList.innerHTML = `<tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+    </tr>`;
+
+      filteredStudents.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+      <td>${student.name}</td>
+      <td>${student.gender}</td>
+      <td>${student.age()}</td>`;
+        studentList.appendChild(tr);
+      });
+    }
+
+    function showAllStudents() {
+      updateStudentList();
+    }
+
+    let filterButtons = document.querySelector(".filterButtons");
+
+    function filterBy() {
+      let filterMethod = document.getElementById("filterMethod").value;
+      filterButtons.innerHTML = ''; // Clear previous buttons
+
+      if (filterMethod === "gender") {
+        filterButtons.innerHTML = `
+      <button onclick="filterByGender('Male')">Male</button>
+      <button onclick="filterByGender('Female')">Female</button>
+      <button onclick="filterByGender('Other')">Other</button>
+      <button onclick="showAllStudents()">Show All</button>
+    `;
+      }
+      else if (filterMethod === "age") {
+        filterButtons.innerHTML = `
+      <button onclick="filterByAge(18)">18+</button>
+      <button onclick="filterByAge(13)">13+</button>
+      <button onclick="showAllStudents()">Show All</button>
+    `;
+      }
+    }
+
+    document.getElementById("filterMethod").addEventListener("change", filterBy);
+  </script>
+</body>
+
+</html>

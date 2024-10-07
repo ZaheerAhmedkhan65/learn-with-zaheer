@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../week-12/schoolManagementSystem/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+</head>
+
+<body>
+
+    <div class="mainContainer">
+        <div class="notificationContainer d-flex align-center justify-content-end position-absolute top-40 right-0">
+            <div class="notification border-1 br-10 m-5 p-20 fs-20"></div>
+        </div>
+        <div class="topNav bg-primary py-10 pl-20 d-flex align-center justify-content-between">
+            <p>School Management System</p>
+            <button class="bg-danger br-5 p-5 mr-20 pointer" id="logOut">Log Out</button>
+        </div>
+        <div class="contentWrapper d-flex">
+            <div class="sideNav border-1 bg-secendory">
+
+                <div class="d-flex align-center flex-column gap-15 py-5 px-20">
+                    <div id="adminProfile" class="profile mt-10"></div>
+                    <div class="admin align-start p-5 br-5  pointer tab d-flex gap-10 w-100 fs-20" id="defaultOpen"
+                        onclick="openPage('adminContainer', this,'#008080c8')">
+                        <i class="ri-admin-fill"></i>
+                        <p>Admin</p>
+                    </div>
+                    <div class="students align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20"
+                        onclick="openPage('studentsContainer', this,'#008080c8')">
+                        <i class="ri-team-fill"></i>
+                        <p>Student</p>
+                    </div>
+                    <div class="teachers align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20"
+                        onclick="openPage('teachersContainer', this,'#008080c8')">
+                        <i class="ri-presentation-fill"></i>
+                        <p>Teacher</p>
+                    </div>
+                    <div class="courses align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20"
+                        onclick="openPage('coursesContainer', this,'#008080c8')">
+                        <i class="ri-book-open-fill"></i>
+                        <p>Course</p>
+                    </div>
+                </div>
+            </div>
+            <div id="adminContainer" class="tabcontent w-100">
+                <h2 id="welcome-msg" class="ml-10 my-30"></h2>
+                <div class="adminPopUpContainer">
+                    <div class="d-flex align-center justify-content-center">
+                        <div class="popUp addAdminPopUp d-flex align-center justify-content-center flex-column gap-15 p-20 bg-primary">
+                            <div class="d-flex align-center justify-content-between w-100">
+                                <b>New Admin</b>
+                                <i class="ri-close-fill pointer cancelAddNewAdminBtn"></i>
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <input class="p-10" type="text" placeholder="Admin Name" id="adminName">
+                                <input class="p-10" type="text" placeholder="Admin Father Name" id="adminFatherName">
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <select name="Gender" class="p-10 w-100" id="adminGender">
+                                    <option value="">Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <input class="p-9 w-100" type="date" placeholder="Date Of Birth" id="adminDob">
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <input class="p-10" type="email" placeholder="Email" id="adminEmail">
+                                <input class="p-10" type="password" placeholder="Password" id="adminPassword">
+                            </div>
+                            <button class="pointer" id="addAdmin">add Admin</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="infoContainer  d-flex align-center gap-15 m-10">
+                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 white">
+                        <p class="pb-10 pr-50 fs-20 boxHeader">Total Admins</p>
+                        <div class="d-flex align-center justify-content-between py-10 boxFooter">
+                            <i class="ri-presentation-fill fs-25"></i>
+                            <b id="adminCount" class="fs-22">0</b>
+                        </div>
+                    </div>
+                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 white">
+                        <p class="pb-10 pr-50 fs-20 boxHeader">Total Teachers</p>
+                        <div class="d-flex align-center justify-content-between py-10 boxFooter">
+                            <i class="ri-presentation-fill fs-25"></i>
+                            <b id="teacherCount" class="fs-22">0</b>
+                        </div>
+                    </div>
+                    <div class="studentsInfo box border-1 bg-success br-10 pt-20 pb-10 px-20 white">
+                        <p class="pb-10 pr-50 fs-20 boxHeader">Total Students</p>
+                        <div class="d-flex align-center justify-content-between py-10 boxFooter">
+                            <i class="ri-team-fill fs-25"></i>
+                            <b id="studentCount" class="fs-22">0</b>
+                        </div>
+                    </div>
+                    <div class="coursesInfo box border-1 bg-warning br-10 pt-20 pb-10 px-20 white">
+                        <p class="pb-10 pr-50 fs-20 boxHeader">Total Courses</p>
+                        <div class="d-flex align-center justify-content-between py-10 boxFooter">
+                            <i class="ri-book-open-fill fs-25"></i>
+                            <b id="courseCount" class="fs-22">0</b>
+                        </div>
+                    </div>
+                    <div class="feeInfo box border-1 bg-danger br-10 pt-20 pb-10 px-20 white">
+                        <p class="pb-10 pr-50 fs-20 boxHeader">Total Fee</p>
+                        <div class="d-flex align-center justify-content-between py-10 boxFooter">
+                            <i class="ri-money-dollar-circle-line fs-25"></i>
+                            <b id="feeCount" class="fs-22">0</b>
+                        </div>
+                    </div>
+                </div>
+               <div class="d-flex align-center gap-15 ml-10 mt-30">
+                    <button class="p-10 br-5 pointer" id="showAdmin">Show Admins</button>
+                    <button class="p-10 br-5 pointer" id="addNewAdmin">Add New Admin</button>
+                    <button class="p-10 br-5 pointer" id="removeAdmin">Remove Admin</button>
+               </div>
+                <div class="adminList mt-40 mx-10"></div>
+            </div>
+            <div id="teachersContainer" class="tabcontent w-100">
+                <div class="teacherPopUpContainer">
+                    <div class="d-flex align-center justify-content-center">
+                        <div class="popUp addTeacherPopUp d-flex align-center justify-content-center flex-column gap-15 p-20 bg-primary">
+                            <div class="d-flex align-center justify-content-between w-100">
+                                <b>New Teacher</b>
+                                <i class="ri-close-fill pointer cancelAddNewTeacherBtn"></i>
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <input class="p-10" type="text" placeholder="Teacher Name" id="teacherName">
+                                <input class="p-10" type="text" placeholder="Teacher Father Name"
+                                    id="teacherFatherName">
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <select name="Gender" class="p-10 w-100" id="teacherGender">
+                                    <option value="">Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <input class="p-9 w-100" type="date" placeholder="Date Of Birth" id="teacherDob">
+                            </div>
+                            <div class="d-flex align-center justify-content-between gap-15 w-100">
+                                <input class="p-10" type="text" placeholder="Teacher Qualification"
+                                    id="teacherQualification">
+                                <input class="p-10" type="text" placeholder="Teacher Salary" id="teacherSalary">
+                            </div>
+                            <button class="pointer" class="pointer" id="addTeacher">add Teacher</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-center gap-15 ml-10 mt-30">
+                    <button class="p-10 br-5 pointer" id="showTeachers">Show Teachers</button>
+                    <button class="p-10 br-5 pointer" id="addNewTeachers">Add New Teachers</button>
+                    <button class="p-10 br-5 pointer" id="removeTeacher">Remove Teacher</button>
+                </div>
+                <div class="teachersList mt-40 mx-10"></div>
+            </div>
+        
+        <div id="studentsContainer" class="tabcontent w-100">
+            <div class="studentPopUpContainer">
+                <div class="d-flex align-center justify-content-center">
+                    <div class = "popUp addStudentPopUp d-flex align-center justify-content-center flex-column gap-15 p-20 bg-primary">
+                        <div class="d-flex align-center justify-content-between w-100">
+                            <b>New Student</b>
+                            <i class="ri-close-fill pointer cancelAddNewStudentBtn"></i>
+                        </div>
+                        <div class="d-flex align-center justify-content-between gap-15 w-100">
+                            <input class="p-10 br-5 p-10" type="text" placeholder="Student Name" id="studentName">
+                            <input class="p-10 br-5 p-10" type="text" placeholder="Student Father Name" id="studentFatherName">
+                        </div>
+                        <div class="d-flex align-center justify-content-between gap-15 w-100">
+                            <select class="p-10 w-100" name="Gender" id="studentGender">
+                                <option value="">Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input class="p-9 w-100" type="date" placeholder="Date Of Birth" id="studentDob">
+                        </div>
+                        <div class="d-flex align-center justify-content-between gap-15 w-100">
+                            <select class="p-10 w-100" name="Grade" id="studentGrade">
+                                <option value="">Course</option>
+                                <option value="web development">web development</option>
+                                <option value="ux/ui">ux/ui</option>
+                                <option value="graphic designer">graphic designer</option>
+                            </select>
+                            <!-- <input class="p-10" type="text" placeholder="Student Fee" id="studentFee"> -->
+                        </div>
+                        <button class="pointer" id="addStudent">add Student</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-center gap-15 ml-10 mt-30">
+                <button class="p-10 br-5 pointer" id="showStudents">Show Students</button>
+                <button class="p-10 br-5 pointer" id="addNewStudent">Add New Student</button>
+                <button class="p-10 br-5 pointer" id="removeStudent">Remove Student</button>
+            </div>
+                <div class="studentsList mt-40 mx-10"></div>
+        </div>
+        <div id="coursesContainer" class="tabcontent w-100">
+            <div class="coursePopUpContainer">
+                <div class="d-flex align-center justify-content-center">
+                    <div class = "popUp addCoursePopUp d-flex align-center justify-content-center flex-column gap-15 p-20 bg-primary">
+                        <div class="d-flex align-center justify-content-between w-100">
+                            <b>New Course</b>
+                            <i class="ri-close-fill pointer cancelAddNewCourseBtn"></i>
+                        </div>
+                        <div class="d-flex align-center flex-column gap-15">
+                            <input class="p-10 br-5 p-10 w-100" type="text" placeholder="Course Name" id="courseName">
+                            <input class="p-10 br-5 p-10 w-100" type="text" placeholder="Course Duration" id="courseDuration">
+                            <input class="p-10 br-5 p-10 w-100" type="text" placeholder="Course Fee" id="courseFee">
+                        </div>
+                        <button class="pointer" id="addCourse">add Course</button>
+                    </div>
+                </div>
+            </div>
+               <div class="d-flex align-center gap-15 ml-10 mt-30">
+                    <button class="p-10 br-5 pointer" id="showCourses">Show Courses</button>
+                    <button class="p-10 br-5 pointer" id="addNewCourse">Add New Course</button>
+                    <button class="p-10 br-5 pointer" id="removeCourse">Remove Course</button>
+               </div>
+               <div class="coursesList mt-40 mx-10"></div>
+        </div>
+    </div> 
+</div>
+    <script type="module" src="index.js"></script>
+    <script src="./js/variables.js"></script>
+</body>
+
+</html>

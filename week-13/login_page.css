@@ -1,0 +1,104 @@
+.login-form {
+    width: 300px;
+    font-family: 'Arial', sans-serif;
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .formWrapper{
+    min-height: 237.5px;
+    position: relative;
+  }
+  input {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  label {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #999;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    pointer-events: none;
+  }
+  input:focus + label,input:valid + label {
+    top: -6px;
+    left: 8px;
+    font-size: 12px;
+    color: white;
+    background-color: #fff;
+    padding: 0px 8px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #4CAF50;
+  }
+  button {
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .input-wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 0px 5px;
+  }
+  .bg-default{
+    background-color: #008080c8;
+  }
+  #openFormWrapper{
+    display: none;
+    width: 300px;
+    margin : 0px 40px;
+  }
+  .openFormBtnWrapper{
+    position: absolute;
+    bottom:15px;
+    right: 0px;
+  }
+  #openForm{
+    width: 200px;
+  }
+  @media (max-width:800px) {
+    .wrapper{
+       flex-direction: column; 
+       width: 100%;
+       min-height: 363px;
+    }
+    .contentWrapper{
+      flex-direction: column;
+    }
+    .sideNav{
+      width: 100%;
+    }
+    .login-form{
+       width: 330px; 
+    }
+    #openForm{
+      width: 150px;
+    }
+    .wrapper{
+      padding: 0;
+      margin: 0;
+    }
+    .formWrapper{
+      width: 100%;
+    }
+    .loginInstruction{
+      font-size: 12px;
+    }
+
+    
+}

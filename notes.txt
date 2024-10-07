@@ -1,0 +1,23 @@
+                                       Database: 
+=> ddr queries
+   create,
+   database,
+   table,
+   select,
+   from,
+   where,
+   insert into,
+   values,
+   like,
+   update,
+   set,
+   offset,
+   limit
+=> pagenation is done by using (limit and offset)
+=> rbenv,rvm
+//rvm gemset create name_
+//rails new book_store
+
+///////
+migration//to study
+install ruby and rvm

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../resources/css/buttons.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="py-2 text-center">Recursion Function</h3>
+        <div class="border border-primary border-radius-5 p-2 d-flex flex-column justify-content-center align-items-center ">
+           <div class="d-flex justify-content-center gap-3 align-items-center flex-column">
+             <input type="text" placeholder="Enter Number" id="num" class="py-1 px-2 border border-primary rounded">
+             <select name="method" id="method" class="w-100 py-1 px-2">
+                <option>Select Method</option>
+                <option value="factorial">Factorial</option>
+                <option value="fabonacci">Fabonacci</option>
+                <option value="square">Square</option>
+                <option value="counting">Counting</option>
+                <option value="even">Even Numbers</option>
+                <option value="odd">Odd Numbers</option>
+                <option value="prime">Prime Numbers</option>
+             </select>
+            </div>
+            <div class="message py-2"></div>  
+        </div>
+    </div>
+    <div class="buttonsContainer">
+        <button><a href="../week-9/assignment-9.html">Previous</a></button>
+       <button><a href="../index.html">Home</a></button>
+    </div>
+    <script>
+        let message = document.querySelector(".message");
+       
+        function factorial(n) {
+            if (n == 0 || n == 1) {
+                return 1;
+            }
+            let result = factorial(n - 1); 
+            message.textContent = ` ${n * result}`
+             
+            return n * result;  
+        }
+
+        function fibonacciSequence(n) {
+            function fibonacci(num) {
+            if (num <= 0) return 0;
+            if (num === 1) return 1;
+            return fibonacci(num - 1) + fibonacci(num - 2);
+            }
+            let sequence = '';
+            for (let i = 0; i <= n; i++) {
+                sequence += fibonacci(i) + " ";
+            }
+            message.textContent=sequence;
+            return sequence;
+        }
+
+        function getSquare(n){
+            message.textContent = n*n;
+            return n*n;
+        }
+        function counting(num,count){
+            if(count > num){
+                return;
+            }
+            let span = document.createElement("span");
+            span.textContent =" "+ count + " ";
+            message.appendChild(span);
+            count++;
+            return counting(num,count);
+        }
+        function getEven(num,count){
+            if(count >= num){
+                return;
+            }
+            count += 1;
+            if(count % 2 == 0){
+                let span = document.createElement("span");
+                span.textContent =" "+ count + " ";
+                message.appendChild(span);
+            }
+           
+            return getEven(num,count);
+        }
+        function getOdd(num,count){
+            if(count >= num){
+                return;
+            }
+            count += 1;
+            if(count % 2 == 1){
+                let span = document.createElement("span");
+                span.textContent =" "+ count + " ";
+                message.appendChild(span);
+            }
+           
+           
+            
+            return getOdd(num,count);
+        }
+        function getPrime(num,prime){
+            if(prime > num){
+                return;
+            }
+            
+    if(prime % 2 == 1 && prime % 3 != 0 && prime % 5 != 0 && prime % 7 != 0&& prime % 11 != 0&& prime % 13 != 0){
+        let span = document.createElement("span");
+            span.textContent =" "+ prime + " ";
+            message.appendChild(span);
+    }
+      else if(prime==2||prime==3||prime==5||prime==7||prime==11||prime==13){
+        let span = document.createElement("span");
+            span.textContent =" "+ prime + " ";
+            message.appendChild(span);
+      }
+      prime ++;
+     return getPrime(num,prime);
+        }
+    window.onkeydown = (event) => {
+            if (event.key === "Enter") {
+                let numInput = document.getElementById("num").value;
+                let method = document.querySelector("#method").value;
+                numInput = parseInt(numInput);
+                if(document.getElementById("num").value === '' || document.querySelector("#method").value === ''){
+                return;
+                }
+                if (numInput >= 0) {
+                    run(method,numInput);  
+                } else {
+                    let div = document.createElement("p");
+                    div.textContent = "Please enter a valid non-negative number.";
+                    message.appendChild(div);
+                }
+            }
+        };
+        function run(m,num){
+        switch (m){
+            case "fabonacci":
+                if(num>32){
+                alert("Please Enter Lower Number !")
+                return;
+            }
+            fibonacciSequence(num);
+            break;
+            case "factorial":
+            factorial(num);
+            break;
+            case "square":
+            getSquare(num);
+            break;
+            case "counting":
+            message.innerHTML = '';
+            counting(num,1);
+            break;
+            case "even":
+            message.innerHTML = '';
+            getEven(num,0);
+            break;
+            case "odd":
+            message.innerHTML = '';
+            getOdd(num,0);
+            break;
+            case "prime":
+            if(num>200){
+                alert("Please Enter Lower Number !")
+                return;
+            }
+            message.innerHTML = '';
+            getPrime(num,1);
+            break;
+        }
+    }
+    </script>
+</body>
+</html>

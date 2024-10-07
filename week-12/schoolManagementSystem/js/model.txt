@@ -1,0 +1,140 @@
+Person: The base class that represents a generic person in the school system. This class could include common attributes such as name, dob (date of birth), gender, address, etc., and common methods like calculating age() or updating contact information.
+
+Student: This class inherits from Person and adds student-specific attributes like rollNumber, grade, courses, etc. It could also have methods like enrollCourse() or viewGrades().
+
+Staff: This class also inherits from Person but is used to represent school staff members. It could have attributes such as staffID, hireDate, and methods like calculateSalary().
+
+UndergraduateStudent and PostgraduateStudent: These classes are specialized versions of Student, possibly adding more specific fields or methods. For example, PostgraduateStudent might have a field for thesisTitle, while UndergraduateStudent could have a field for major.
+
+TeachingStaff: A subclass of Staff that includes specific attributes for teachers like subjectSpecialization, classSchedule, and methods like assignGrades().
+
+NonTeachingStaff: Another subclass of Staff for administrative and support roles such as Accountant, Librarian, or Clerk. This could include fields like department or methods like manageResources().
+
+Optional extensions:
+You could add more specialized classes, such as:
+
+Administrator: Inheriting from Staff, representing higher-level staff responsible for managing school operations.
+Alumni: A specialized class derived from Student to represent former students.
+This class structure promotes code reuse by allowing common behaviors to be defined in the parent class (Person), while more specific behaviors are handled in child classes
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Person (Superclass)
+Student (Inherits from Person)
+Associated with: Course, Attendance, Exam, Grades
+Staff (Inherits from Person)
+TeachingStaff (Inherits from Staff)
+Associated with: Course, Exam
+NonTeachingStaff (Inherits from Staff)
+New Classes:
+Course: Represents the subjects or classes offered.
+
+Attributes: courseName, courseCode, credits, syllabus
+Methods: assignInstructor(), enrollStudent()
+Relationships:
+Has a: TeachingStaff (instructors)
+Has many: Students
+Attendance: Tracks student attendance for courses.
+
+Attributes: date, status (present/absent)
+Methods: markAttendance()
+Relationships:
+Belongs to: Student, Course
+Exam: Represents exams for various courses.
+
+Attributes: examName, date, totalMarks
+Methods: scheduleExam(), assignGrades()
+Relationships:
+Has many: Students
+Belongs to: Course
+Grades: Stores exam results and grading.
+
+Attributes: grade, examID, studentID
+Methods: calculateGPA()
+Relationships:
+Belongs to: Student, Exam
+Diagram Explanation:
+Course: A course is associated with both TeachingStaff (as instructors) and Students (as enrollees).
+Attendance: Tracks which Student attends which Course on specific dates.
+Exams: Exams are linked to Courses, and multiple Students can take an exam.
+Grades: Records the performance of a Student in an Exam.
+
+///association
+// TeachingStaff Class
+class TeachingStaff {
+    constructor(name, subject) {
+        this.name = name;
+        this.subject = subject;
+    }
+
+    getDetails() {
+        return `${this.name} teaches ${this.subject}`;
+    }
+}
+
+// Course Class
+class Course {
+    constructor(courseName, teacher) {
+        this.courseName = courseName;
+        this.teacher = teacher; // Association with TeachingStaff
+        this.students = []; // Association with Students
+    }
+
+    enrollStudent(student) {
+        this.students.push(student);
+        console.log(`${student.name} has enrolled in ${this.courseName}`);
+    }
+
+    getCourseDetails() {
+        return `${this.courseName} is taught by ${this.teacher.name}`;
+    }
+
+    listEnrolledStudents() {
+        console.log(`Students enrolled in ${this.courseName}:`);
+        this.students.forEach(student => console.log(student.name));
+    }
+}
+
+// Student Class
+class Student {
+    constructor(name, rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.courses = []; // Association with Course
+    }
+
+    enrollInCourse(course) {
+        course.enrollStudent(this); // Student is associated with Course
+        this.courses.push(course);
+    }
+
+    listCourses() {
+        console.log(`${this.name} is enrolled in the following courses:`);
+        this.courses.forEach(course => console.log(course.courseName));
+    }
+}
+
+// Creating TeachingStaff
+const teacher1 = new TeachingStaff('Mr. John', 'Mathematics');
+
+// Creating Course and associating with TeachingStaff
+const course1 = new Course('Algebra 101', teacher1);
+
+// Creating Students
+const student1 = new Student('Alice', 'BC01');
+const student2 = new Student('Bob', 'BC02');
+
+// Enrolling Students in the Course
+student1.enrollInCourse(course1);
+student2.enrollInCourse(course1);
+
+// Display Course and TeachingStaff details
+console.log(course1.getCourseDetails());
+
+// List enrolled students
+course1.listEnrolledStudents();
+
+// List the courses each student is enrolled in
+student1.listCourses();
+student2.listCourses();

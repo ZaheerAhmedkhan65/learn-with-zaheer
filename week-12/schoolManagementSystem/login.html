@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login_page.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="top-nav d-flex align-center gap-15 py-5 px-20 bg-primary">
+      <div class="admin p-5 br-5 pointer tab bg-default">Admin</div>
+    </div>
+    <div class="notificationContainer d-flex align-center justify-content-end position-absolute top-40 right-0">
+      <div class="notification border-1 br-10 m-5 p-20 fs-20"></div>
+   </div>
+    <div class="contentWrapper d-flex">
+      <div class="sideNav border-1 bg-secendory">
+
+        <div class="d-flex align-center flex-column gap-15 py-5 px-20">
+            <div class="profile mt-10">
+                <img class="border-1 br-50-per bg-primary" src="./avatar-13.png" alt="admin profile" width="60px" height="50px">
+            </div>
+            <div class="admin align-start p-5 br-5  pointer tab d-flex gap-10 w-100 fs-20" id="defaultOpen">
+                <i class="ri-admin-fill"></i>
+                <p>Admin</p>
+            </div>
+            <div class="students align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+                <i class="ri-team-fill"></i>
+                <p>Student</p>
+            </div>
+            <div class="teachers align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+                <i class="ri-presentation-fill"></i>
+                <p>Teacher</p>
+            </div>
+            <div class="courses align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+                <i class="ri-book-open-fill"></i>
+                <p>Course</p>
+            </div>
+        </div>
+    </div>
+   
+    <div class="wrapper px-20 pt-20 d-flex align-center justify-content-center w-100">
+      <div class="formWrapper d-flex w-50 justify-content-between border-1">
+        <div class="description w-100 mx-20 mt-20">
+          <b>Login as Admin</b>
+          <p class="loginInstruction fs-20 mt-10"></p>
+          <p class="errorContainer mt-20"></p>
+        </div>
+        <div class="login-form w-100 mx-20 p-10">
+          <div class="form-group">
+            <b>Log In</b>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" id="email" required>
+              <label for="email">Email</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="password" id="password" required>
+              <label for="password">Password</label>
+              <div class="eyeIcon pointer">
+                <i class="ri-eye-line"></i>
+              </div>
+            </div>
+    
+          </div>
+          <div class="d-flex align-center justify-content-between">
+            <button class="bg-primary" id="loginBtn">Log In</button>
+            <button class="bg-danger" id="closeBtn">Close</button>
+          </div>
+    
+        </div>
+           <div id="openFormWrapper">
+            <div class="openFormBtnWrapper mx-20">
+              <button class="w-100 bg-primary" id="openForm">Open Form</button>
+            </div>
+           </div>
+      </div>
+     </div>
+    </div>
+  </div>
+  <script>
+    let eyeIcon = document.querySelector(".eyeIcon");
+    let loginInstruction = document.querySelector(".loginInstruction");
+    let closeBtn = document.getElementById("closeBtn");
+    let loginForm = document.querySelector(".login-form");
+    let openFormWrapper = document.getElementById("openFormWrapper");
+    let openForm = document.getElementById("openForm");
+    let errorContainer = document.querySelector(".errorContainer");
+    let instructionText = "Welcome to admin page.Sign in to open admin panel."
+
+    let writingSpeed = 100;
+    var i = 0;
+    function typeWriter() {
+      if (i < instructionText.length) {
+        loginInstruction.innerHTML += instructionText.charAt(i);
+        i++;
+        setTimeout(typeWriter, writingSpeed);
+      }
+    }
+    typeWriter();
+       
+    closeBtn.addEventListener("click",()=>{
+      loginForm.style.display = "none";
+      openFormWrapper.style.display = "block";
+    });
+    openForm.addEventListener("click",()=>{
+      loginForm.style.display = "block";
+      openFormWrapper.style.display = "none";
+    });
+
+    function login(email, password) {
+      for(var i = 0; i < admins.length ; i++){
+      if (admins[i].email === email && admins[i].password === password) {
+       let adminProfileLink = admins[i].profile;
+        window.location.href = "./index.html";
+        return;
+      }
+      else {
+        errorContainer.innerHTML = `
+        <p class = "color-danger">Invalid Email Or Password.Please Try Again !</p>
+        `;
+        setTimeout(()=>{
+          errorContainer.innerHTML = ``;
+        },5000);
+        return;
+      }
+    }
+    }
+
+    let loginBtn = document.getElementById("loginBtn");
+    loginBtn.addEventListener("click", () => {
+      let passwordInput = document.getElementById("password").value;
+      let emailInput = document.getElementById("email").value;
+      if(document.getElementById("email").value === ''||document.getElementById("password").value === ''){
+        notify("color-danger","Please fill all input fields!")
+        return;
+      } 
+      login(emailInput, passwordInput);
+      document.getElementById("email").value = '';
+      document.getElementById("password").value = '';
+    })
+
+    eyeIcon.addEventListener("click", () => {
+      if (password.type == "password") {
+        eyeIcon.innerHTML = `<i class="ri-eye-off-line"></i>`;
+        password.type = "text";
+      }
+      else {
+        eyeIcon.innerHTML = `<i class="ri-eye-line"></i>`;
+        password.type = "password"
+      }
+    });
+  </script>
+  <script src="./js/school.js"></script>
+</body>
+
+</html>

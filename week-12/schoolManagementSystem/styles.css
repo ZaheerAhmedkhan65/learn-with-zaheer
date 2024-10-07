@@ -1,0 +1,471 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+/* display */
+.d-flex{
+    display: flex;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.justify-content-end{
+    justify-content: flex-end;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-center{
+    align-items: center;
+}
+.align-start{
+    align-items: flex-start;
+}
+.align-end{
+    align-items: flex-end;
+}
+.flex-column{
+    flex-direction: column;
+}
+/* colors */
+.color-primary{
+    color: teal !important;
+}
+.color-secendory{
+    color: rgb(174, 2, 148) !important;
+}
+.color-success{
+    color: rgba(2, 152, 2, 0.935) !important;
+}
+.color-danger{
+    color: rgba(246, 8, 8, 0.935) !important;
+}
+.white{
+    color: white;
+}
+/* background colors */
+.bg-transparent{
+    background-color: transparent;
+}
+.bg-primary{
+    background-color: rgba(0, 128, 128, 0.542);
+}
+.bg-secendory{
+    background-color:rgba(174, 2, 148, 0.549) ;
+}
+.bg-info{
+    background-color: rgba(100, 148, 237, 0.756);
+}
+.bg-success{
+    background-color: rgba(79, 233, 79, 0.683);
+}
+.bg-warning{
+    background-color: rgba(255, 255, 0, 0.636);
+}
+.bg-danger{
+    background-color: rgba(246, 8, 8, 0.849);
+}
+/* gap */
+.gap-5{
+    gap: 5px;
+}
+.gap-10{
+ gap: 10px;
+}
+.gap-15{
+    gap: 15px;
+}
+.gap-20{
+    gap: 20px;
+}
+/* margin */
+.m-5{
+    margin: 5px;
+}
+.m-10{
+    margin: 10px;
+}
+.m-15{
+    margin: 15px;
+}
+.m-20{
+    margin: 20px;
+}
+.ml-5{
+    margin-left: 5px;
+}
+.ml-10{
+    margin-left: 10px;
+}
+.ml-15{
+    margin-left: 15px;
+}
+.ml-20{
+    margin-left: 20px;
+}
+.mr-5{
+    margin-right: 5px;
+}
+.mr-10{
+    margin-right: 10px;
+}
+.mr-15{
+    margin-right: 15px;
+}
+.mr-20{
+    margin-right: 20px;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.mb-5{
+    margin-bottom: 5px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.mb-15{
+    margin-bottom: 15px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.my-5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.my-10{
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+.my-15{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.my-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.my-30{
+     margin-top: 30px;
+     margin-bottom: 30px;
+}
+.mx-5{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mx-10{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mx-15{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.mx-20{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* padding */
+.p-5{
+    padding: 5px;
+}
+.p-9{
+    padding: 9px 0px 9px 9px; 
+}
+.p-10{
+    padding: 10px;
+}
+.p-15{
+    padding: 15px;
+}
+.p-20{
+    padding: 20px;
+}
+.pl-5{
+    padding-left: 5px;
+}
+.pl-10{
+    padding-left: 10px;
+}
+.pl-15{
+    padding-left: 15px;
+}
+.pl-20{
+    padding-left: 20px;
+}
+.pr-5{
+    padding-right: 5px;
+}
+.pr-10{
+    padding-right: 10px;
+}
+.pr-15{
+    padding-right: 15px;
+}
+.pr-20{
+    padding-right: 20px;
+}
+.pr-50{
+    padding-right: 50px;
+}
+.pt-5{
+    padding-top: 5px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+.pt-15{
+    padding-top: 15px;
+}
+.pt-20{
+    padding-top: 20px;
+}
+.pb-5{
+    padding-bottom: 5px;
+}
+.pb-10{
+    padding-bottom: 10px;
+}
+.pb-15{
+    padding-bottom: 15px;
+}
+.pb-20{
+    padding-bottom: 20px;
+}
+.py-5{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.py-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.py-15{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.py-20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.px-5{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.px-10{
+    padding-left: 10px;
+    padding-right: 10px
+}
+.px-15{
+    padding-left: 15px;
+    padding-right: 15px
+}
+.px-20{
+    padding-left: 20px;
+    padding-right: 20px
+}
+/* hover */
+.tab:hover{
+    background-color:#008080c8;
+    color: white;
+    border-radius: 5px;
+}
+::placeholder{
+    color: rgb(174, 2, 148);
+}
+.pointer:hover{
+    cursor: pointer;
+}
+/* border */
+.border-none{
+    border: none;
+}
+.border-1{
+    border: 1px solid;
+}
+.outline-none{
+    outline: none;
+}
+/* border radius */
+.br-5{
+    border-radius: 5px;
+}
+.br-10{
+    border-radius: 10px;
+}
+.br-15{
+    border-radius: 15px;
+}
+.br-50-per{
+    border-radius: 50%;
+}
+/* fonts size */
+.fs-10{
+    font-size: 10px;
+}
+.fs-15{
+    font-size: 15px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-22{
+    font-size: 22px;
+}
+.fs-25{
+    font-size: 25px;
+}
+/* positions */
+.position-absolute{
+    position: absolute;
+}
+.right-0{
+    right: 0px;
+}
+.top-40{
+    top: 40px;
+}
+/* width */
+.w-100{
+    width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.box{
+    width: 12rem;
+    align-self: normal;
+}
+#adminContainer{
+    display: none;
+}
+#teachersContainer{
+    display: none;
+}
+#studentsContainer{
+    display: none;
+}
+#coursesContainer{
+    display: none;
+}
+.notification{
+    display: none;
+}
+p{
+    margin: 0;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table th,tr,td{
+    border: 1px solid;
+    padding: 5px 10px;
+}
+.adminPopUpContainer{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    display: none;
+}
+.teacherPopUpContainer{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    display: none;
+}
+.studentPopUpContainer{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    display: none;
+}
+.coursePopUpContainer{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    display: none; 
+}
+.popUp{
+    border:  1px solid;
+    border-radius: 5px;
+}
+.addTeacherPopUp{
+    visibility: hidden;
+}
+.addStudentPopUp{
+    visibility: hidden;
+}
+.addAdminPopUp{
+    visibility: hidden;
+}
+.addCoursePopUp{
+    visibility: hidden;
+}
+.contentWrapper{
+    min-height: 100vh;
+}
+.sideNav{
+    width: 200px;
+}
+@media (max-width:800px) {
+    body{
+        overflow-x: hidden;
+    }
+    .box{
+        width: 100%;
+        padding: 0;
+    }
+    .boxHeader{
+        padding: 10px;
+    }
+    .boxFooter{
+        padding: 10px;
+    }
+    .contentWrapper{
+       flex-direction: column;
+    }
+    .sideNav{
+        width: 100%;
+    }
+    .studentsList{
+        overflow: scroll;
+        border: 1px solid;
+    } 
+    .teachersList{
+        overflow: scroll;
+        border: 1px solid;
+    } 
+    .adminList{
+        overflow: scroll;
+        border: 1px solid;
+    } 
+    .coursesList{
+        overflow-y: scroll;
+        border: 1px solid;
+    } 
+    .infoContainer{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resources/css/operators.css">
+    <link rel="stylesheet" href="../resources/css/buttons.css">
+</head>
+<body>
+    <div class="container">
+        <header class="display-flex align-items-center justify-conent-center direction-column">
+          <h2 class="info-bg width-100 white text-align-center padding-top-15 padding-bottom-15">JavaScript Operators</h2>
+          <p class="margin-top-10 margin-bottom-10 border-2 padding-10">JavaScript has a variety of operators, which can be categorized into several types.Here are the main types of operators in JavaScript, along with examples.</p>
+        </header>
+        <div class="display-flex justify-content-flex-start margin-left-30">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center justify-content-flex-start">
+            <h3>1. Arithmetic Operators</h3>
+            <p>Arithmetic operators are used to perform mathematical operations.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10"> 
+            <div class=""><span class="bold">Addition (+)</span> : Adds two numbers.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let sum = 5 + 3; // sum is <b class="green">8</b>
+                    let concat = 'Hello' + ' ' + 'World'; // concat is <b class="green">'Hello World'</b>
+                </pre>
+            </div>
+             </code>
+            </div>
+             <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Subtraction (-)</span> : Subtracts the second number from the first.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let subtraction = 5 - 3; // subtraction is <b class="green">2</b>
+                    let subtraction = 15 - 5; // subtraction is <b class="green">10</b>
+                </pre>
+            </div>
+             </code>
+             </div>
+             <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+            <div class=""><span class="bold">Multiplication(*)</span> : Multiply first and second number.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let multiplication = 5 * 3; // multiplication is <b class="green">15</b>
+                    let multiplication = 4 * 6; // multiplication is <b class="green">24</b>
+                </pre>
+            </div>
+             </code>
+             </div>
+             <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Division(/)</span> : Divide two numbers.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let division = 5 / 3; // division is <b class="green">1.6666666667</b>
+                    let division = 25 / 5; // division is <b class="green">5</b>
+                </pre>
+            </div>
+             </code>
+             </div>
+             <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Modulus(%)</span> : Returns remainder of the number.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let remainder = 5 % 2; // remainder is <b class="green">1</b>
+                    let remainder = 10 % 2; // remainder is <b class="green">0</b>  
+                </pre>
+            </div>
+             </code>
+            </div>
+        </div>
+    </div>
+        <div class="display-flex justify-content-flex-end margin-right-30">
+         <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>2. Comparison Operators</h3>
+            <p>Comparison operators are used to compare two values and return a boolean value (<code><b class="green">true</b>, <b class="red">false</b></code>).</p>
+            
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+                <div><span class="bold">Equal to (==)</span> : Checks if two values are equal.</div>
+                <code>
+                    <div class="border-2 border-green margin-top-10">
+                        <pre>
+        let isEqual = 5 == '5'; // isEqual is <b class="green">true</b>
+        let isEqualStrict = 5 === '5'; // isEqualStrict is <b class="red">false</b> <b class="yellow">(strict equality)</b>
+                        </pre>
+                    </div>
+                </code>
+            </div>
+            
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+                <div><span class="bold">Greater than (>)</span> : Checks if the first value is greater than the second</div>
+                <code>
+                    <div class="border-2 border-green margin-top-10">
+                        <pre>
+        let isGreater = 10 > 5; // isGreater is <b class="green">true</b>
+        let isGreater = 2 > 5; // isGreater is <b class="red">false</b>
+                        </pre>
+                    </div>
+                </code>
+            </div>
+            
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+                <div><span class="bold">Less than (<)</span> : Checks if the first value is less than the second</div>
+                <code>
+                    <div class="border-2 border-green margin-top-10">
+                        <pre>
+        let isLesser = 2 < 5; // isLesser is <b class="green">true</b>
+        let isLesser = 10 < 5; // isLesser is <b class="red">false</b>
+                        </pre>
+                    </div>
+                </code>
+            </div>
+            
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+                <div><span class="bold">Greater than or Equal to (>=)</span> : Checks if the first value is greater than or equal to the second</div>
+                <code>
+                    <div class="border-2 border-green margin-top-10">
+                        <pre>
+        let isGreaterThanOrEqualTo = 10 >= 5; // isGreaterThanOrEqualTo is <b class="green">true</b>
+        let isGreaterThanOrEqualTo = 2 >= 5; // isGreaterThanOrEqualTo is <b class="red">false</b>
+                        </pre>
+                    </div>
+                </code>
+            </div>
+            
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+                <div><span class="bold">Less than or equal to (<=)</span> : Checks if the first value is less than or equal to the second</div>
+                <code>
+                    <div class="border-2 border-green margin-top-10">
+                        <pre>
+        let isLesserThanOrEqualTo = 2 <= 5; // isLesserThanOrEqualTo is <b class="green">true</b>
+        let isLesserThanOrEqualTo = 10 <= 5; // isLesserThanOrEqualTo is <b class="red">false</b>
+                        </pre>
+                    </div>
+                </code>
+            </div>
+        </div>
+    </div>
+        
+    <div class="display-flex justify-content-flex-start margin-left-30">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>3. Logical Operators</h3>
+            <p>Logical operators are used to combine two or more conditions.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10"> 
+            <div class=""><span class="bold">Logical AND (&&)</span> : Returns true if both conditions are true.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    if ( <code><b class="green">true</b> && <b class="green">true</b></code> ) // <b class="green">true</b>
+                    let andResult = (5 > 3) && (10 > 5); // andResult is <b class="green">true</b> 
+                    if ( <code><b class="green">true</b> && <b class="red">false</b></code> ) // <b class="red">false</b>
+                    let andResultFalse = (5 > 3) && (5 > 10); // andResultFalse is <b class="red">false</b>
+                    if ( <code><b class="red">false</b> && <b class="green">true</b></code> ) // <b class="red">false</b>
+                    let andResultFalse = (3 > 5) && (10 > 5); // andResultFalse is <b class="red">false</b>
+                </pre>
+            </div>
+        </code>
+    </div>
+    <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10"> 
+             <div class=""><span class="bold">Logical OR (||)</span> : Returns true if at least one condition is true.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    if ( <code><b class="green">true</b> || <b class="green">true</b></code> ) // <b class="green">true</b>
+                    let orResult = (5 > 3) || (10 > 5); // orResult is <b class="green">true</b>
+                    if ( <code><b class="green">true</b> || <b class="red">false</b></code> ) // <b class="green">true</b>
+                    let orResult = (5 > 3) || (5 > 10); // orResult is <b class="green">true</b> 
+                    if ( <code><b class="red">false</b> || <b class="red">false</b></code> ) // <b class="red">false</b>
+                    let orResultFalse = (5 < 3) || (15 < 10); // orResultFalse is <b class="red">false</b> 
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10"> 
+             <div class=""><span class="bold">Logical NOT (!)</span> : Returns true if the condition is false.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    if ( <code>!<b class="red">false</b></code> ) // <b class="green">true</b>
+                    let andResult = (5 != 3); // andResult is <b class="green">true</b> 
+                    if ( <code>!<b class="green">true</b></code> ) // <b class="red">false</b>
+                    let andResultFalse = (5 != 5); // andResultFalse is <b class="red">false</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+    </div>
+    </div>
+    <div class="display-flex justify-content-flex-end margin-right-30">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>4. Assignment Operators</h3>
+            <p>Assignment operators are used to assign values to variables.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10"> 
+            <div class=""><span class="bold">Assignment (=)</span> : Assigns the right-hand operand to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 10; // x is <b class="yellow">10</b> 
+                    let y = 'Hello'; // y is <b class="yellow">'Hello'</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Addition assignment (+=)</span> : Adds the right-hand operand to the left-hand operand and assigns the result to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 5;
+                    x += 3; // x is <b class="green">8</b>
+                    let str = 'Hello';
+                    str += ' World'; // str is <b class="green">'Hello World'</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Subtraction assignment (-=)</span> : Subtracts the right-hand operand to the left-hand operand and assigns the result to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 15;
+                    x -= 3; // x is <b class="green">12</b>
+                    let y = 6;
+                    y -= 10; // y is <b class="red">-4</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Multiplication assignment (*=)</span> : Multiply the right-hand operand to the left-hand operand and assigns the result to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 15;
+                    x *= 3; // x is <b class="green">45</b>
+                    let y = 6;
+                    y *= -10; // y is <b class="red">-60</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""> <span class="bold">Division assignment (/=)</span> : Divide the right-hand operand to the left-hand operand and assigns the result to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 15;
+                    x /= 3; // x is <b class="green">5</b>
+                    let y = 6;
+                    y /= 10; // y is <b class="red">0.6</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Modulus assignment (%=)</span> : Adds the right-hand operand to the left-hand operand and assigns the result to the left-hand operand.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let x = 15;
+                    x %= 3; // x is <b class="green">0</b>
+                    let y = 17;
+                    y %= 2; // y is <b class="red">1</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+            </div>
+        </div>
+        <div class="display-flex justify-content-flex-start margin-left-30">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>5. String Operators</h3>
+            <p>String operators are used to manipulate strings.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">Concatenation (+)</span> : Concatenates two strings.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let greeting = 'Hello' + ' ' + 'World'; // greeting is <b class="green">'Hello World'</b> 
+                    let numString = 'The number is ' + 42; // numString is <b class="green">'The number is 42'</b> 
+                    let numString = 'The number is ' + 42 + 2; // numString is <b class="red">'The number is 44'</b>
+                    let numString = 42 + 2 + 'The number is '; // numString is <b class="green">'The number is 44'</b>  
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+             <div class=""><span class="bold">String length (.length)</span> : Returns the length of a string.</div>
+             <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let length = 'Hello'.length; // length is <b class="yellow">5</b>
+                    let lengthEmpty = ''.length; // lengthEmpty is <b class="yellow">0</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+            </div>
+        </div>
+        <div class="display-flex justify-content-flex-end margin-right-30">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>6. Type Operators</h3>
+            <p>Type operators are used to determine the type of a variable or to convert one type to another.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+            <div class=""><span class="bold">typeof operator</span> : Returns the type of a variable.</div>
+            <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let typeOfNumber = typeof 42; // typeOfNumber is <b class="green">'number'</b>
+                    let typeOfString = typeof 'Hello'; // typeOfString is <b class="green">'string'</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+            <div class=""><span class="bold">instanceof operator</span> : Checks if an object is an instance of a specific class or constructor.</div>
+            <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    let isInstance = [] instanceof Array; // isInstance is <b class="green">true</b> 
+                    let isNotInstance = {} instanceof Array; // isNotInstance is <b class="red">false</b>                    
+                </pre>
+            </div>
+        </code>
+        </div>
+        </div>
+    </div>
+    <div class="display-flex justify-content-flex-start margin-left-30 margin-bottom-10">
+        <div class="box border-10 border-grey margin-top-10 padding-10 text-align-center">
+            <h3>7. Conditional (Ternary) Operator</h3>
+            <p>The conditional operator assigns a value to a variable based on a condition.</p>
+            <div class="blue-bg margin-top-10 margin-bottom-10 text-align-left padding-10">
+            <div class=""><span class="bold">Ternary operator (?)</span> : Assigns one of two values to a variable based on a condition.</div>
+            <code>
+                <div  class="border-2 border-green margin-top-10">
+                <pre>
+                    if (condition == true) ? <b class="green">first</b> is true.
+                    let result = (5 > 3) ? 'Yes' : 'No'; // result is <b class="green">'Yes'</b>
+                    if (condition == false) ? <b class="green">second</b> is true.
+                    let resultFalse = (5 < 3) ? 'Yes' : 'No'; // resultFalse is <b class="green">'No'</b>
+                </pre>
+            </div>
+        </code>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="buttonsContainer">
+        <button><a href="../week-7/car.html">Previous</a></button>
+       <button><a href="../week-9/assignment-9.html">Next</a></button>
+    </div>
+</body>
+</html>

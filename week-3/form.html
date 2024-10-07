@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resources/css/buttons.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(37, 37, 37);
+        }
+        label{
+            color: white;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border: 1px solid white;
+            width: 99.8%;
+            height: 100px;
+            background-color: white;
+            margin-top:40px;
+        }
+        .first_box{
+            border-right: 1px solid black;
+            width: 10%;
+            height: 100px;
+        }
+        img{
+            position:relative;
+            left: 10px;
+        }
+        .first_box p{
+            font-size: 12px;
+            position: relative;
+            right: 25px;
+        }
+        .first_box h3{
+            position: relative;
+            top: 20px;
+            right: 25px;
+        }
+        .second_box p{
+            font-size: 33px;
+            font-weight: 700;
+            position: relative;
+            right: 22px;
+        }
+        
+        .second_box span{
+           font-weight: 100;
+           font-style: italic;
+           color: rgb(39, 38, 38);
+        }
+        form{
+            border: 1px solid transparent;
+            width: 650px;
+            height: 725px;
+            margin: 1px auto;
+            font-family: sans-serif;
+            background-color: teal;
+         }
+         .name_section {
+            padding: 45px 0px;
+            position: relative;
+            right: 25px;
+         }
+         .name_section input{
+            width:250px;
+            height: 30px;
+         }
+         .name_section label{
+            position: relative;
+            left: 77px;
+            bottom: 33px;
+         }
+         .email_section{
+            width: 250.04px;
+            height: 30px;
+            position: relative;
+            left:7.5px;
+            top: 10px;
+         }
+         .phone_section{
+            width: 250.6px;
+            height: 30px;
+            position: relative;
+            right:21px;
+            top: 10px;
+         }
+         .email_label{
+            position: relative;
+            left: 52px;
+            bottom: 27px;
+         }
+         .phone_label{
+            position: relative;
+            left: 30px;
+            bottom: 27px;
+         }
+         .address_label{
+            position: relative;
+            top: 28px;
+            left: 52px;
+         }
+         .address_section{
+            width: 534px;
+            height: 30px;
+            position: relative;
+            top: 60px;
+            right: 11px;
+
+         }
+    
+         .province_section{
+            width: 257.6px;
+            height: 30px;
+            position: relative;
+            top: 100px;
+            left: 52px;
+         }
+         .gender_section{
+            width: 257.6px;
+            height: 30px;
+            position: relative;
+            top: 100px;
+            left: 74px;
+         }
+         .home{
+            position: relative;
+            top: 110px;
+            left: 51px;
+         }
+         .home_yes{
+            position: relative;
+            top: 120px;
+            left: 51px;
+         }
+         .home_no{
+            position: relative;
+            top: 120px;
+            left: 161px;
+         }
+         .sell_home{
+            position: relative;
+            top: 120px;
+            left: 51px;
+         }
+         .submit-btn{
+            width: 80px;
+            height: 30px;
+         }
+         .btn-center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 160px;
+         }
+    </style>
+</head>
+<body>
+    <form>
+        <header>
+             <img src="../resources/img/7449253.png" alt="bank icon" width="40px" height="40px">
+            <div class="first_box">
+                <h3>Sporer</h3>
+                <p>Mega Bank</p>
+            </div>
+            <div class="second_box">
+                <p>Account Opening <span>Form</span></p>
+            </div>
+        </header>
+        
+    <div class="name_section">
+        <label for="first_name">Full Name</label>
+        <input name="first_name" type="text" placeholder="First Name" required>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="last_name" type="text" placeholder="Last Name" required>    
+    </div>
+    <div>
+        <label class="email_label"  for="email">Email</label>
+        <input class="email_section" type="email" type="email" placeholder="example@gmail.com" required>
+        <label class="phone_label" for="Phone">Phone</label>
+        <input class="phone_section" name="Phone" type="tel"  required>
+        <label class="address_label" for="Address">Address</label>
+        <input class="address_section" type="address" placeholder="House no #,Street,City." required>
+        <select class="province_section" name="" id="">
+           <option>Province</option>
+           <option value="Punjab">Punjab</option>
+           <option value="Sindh">Sindh</option>
+           <option value="Balochistan">Balochistan</option>
+           <option value="KPK">KPK</option>
+        </select>
+        <select class="gender_section" name="" id="">
+                <option>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+             </select>
+                <p class="home">Do you own or rent your home?</p>
+                <input class="home_yes"name="select" id="yes" type="radio">
+                <label class="home_yes" for="yes">Yes</label>
+                <input class="home_no" name="select" id="no" type="radio">
+                <label class="home_no" for="no">No</label>
+                <p class="home sell_home">Do you need to sell your home before buying a new one?</p>
+                <input class="home_yes"name="sell" id="sell_yes" type="radio">
+                <label class="home_yes" for="sell_yes">Yes</label>
+                <input class="home_no" name="sell" id="sell_no" type="radio">
+                <label class="home_no" for="sell_no">No</label
+        </div>
+      </div>
+        <div class="btn-center">
+         <input class="submit-btn" type="submit" placeholder="submit">
+        </div>
+    </form>
+    <div class="buttonsContainer">
+      <button><a href="../week-2/assignment_5.html">Previous</a></button>
+     <button><a href="../week-3/practice.html">Next</a></button>
+    </div>
+</body>
+</html>

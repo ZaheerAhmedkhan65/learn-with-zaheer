@@ -1,0 +1,160 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+.error{
+    color: red;
+}
+.red{
+    color: red;
+}
+.error-bg{
+    background-color: rgba(255, 0, 0, 0.431);
+}
+.success{
+    color:green;
+}
+.green{
+    color:green;
+}
+.yellow{
+    color: yellow;
+}
+.white{
+    color: white;
+}
+.success-bg{
+    background-color:rgba(0, 128, 0, 0.483);
+}
+.info-bg{
+    background-color: teal;
+}
+.width-100{
+    width: 100%;
+}
+.width-30{
+    width: 30%;
+}
+.padding-10{
+    padding: 10px;
+}
+.padding-top-10{
+    padding-top: 10px;
+}
+.padding-bottom-10{
+    padding-bottom: 10px;
+}
+.padding-left-10{
+    padding-left: 10px;
+}
+.padding-right-10{
+    padding-right: 10px;
+}
+.padding-15{
+    padding: 15px;
+}
+.padding-top-15{
+    padding-top: 15px;
+}
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+.padding-left-15{
+    padding-left: 15px;
+}
+.padding-right-15{
+    padding-right: 15px;
+}
+.margin-10{
+    margin: 10px;
+}
+.margin-top-10{
+    margin-top: 10px;
+}
+.margin-bottom-10{
+    margin-bottom: 10px;
+}
+.margin-left-10{
+    margin-left: 10px;
+}
+.margin-right-10{
+    margin-right: 10px;
+}
+.margin-left-30{
+    margin-left: 100px;
+}
+.margin-right-30{
+    margin-right: 100px;
+}
+.display-flex{
+    display: flex;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-items-center{
+    align-items: center;
+}
+.justify-content-space-between{
+    justify-content: space-between;
+}
+.justify-content-flex-start{
+    justify-content: flex-start;
+}
+.justify-content-flex-end{
+    justify-content: flex-end;
+}
+.align-items-left{
+    align-items: left;
+}
+.align-items-right{
+    align-items: right;
+}
+.direction-column{
+    flex-direction: column;
+}
+.direction-row{
+    flex-direction: row;
+}
+.border-10{
+    border: 10px solid;
+}
+.border-2{
+border: 2px solid;
+}
+.border-grey{
+    border-color: rgba(128, 128, 128, 0.829);
+}
+.border-green{
+    border-color:rgba(0, 128, 0, 0.78);
+}
+.black-bg{
+    background-color:#333333e3;
+}
+.blue-bg{
+    background-color: rgba(0, 0, 255, 0.326);
+}
+.text-align-center{
+    text-align: center;
+}
+.text-align-left{
+    text-align: left;
+}
+h2,h3,p{
+    margin: 0px;
+}
+.bold{
+    font-weight: bold;
+}
+.container{
+    border: 1px solid;
+    width: 100%;
+}
+.box{
+ width: 60%;
+}
+pre{
+    font-size: 14px;
+}

@@ -3,13 +3,14 @@
 
 <head>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
   <link rel="stylesheet" href="login_page.css">
   <link rel="stylesheet" href="./styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
 </head>
+
 <body>
   <div class="mainContainer">
     <div class="top-nav d-flex align-center gap-15 py-5 px-20 bg-primary">
@@ -17,77 +18,79 @@
     </div>
     <div class="notificationContainer d-flex align-center justify-content-end position-absolute top-40 right-0">
       <div class="notification border-1 br-10 m-5 p-20 fs-20"></div>
-   </div>
+    </div>
     <div class="contentWrapper d-flex">
       <div class="sideNav border-1 bg-secendory">
 
         <div class="d-flex align-center flex-column gap-15 py-5 px-20">
-            <div class="profile mt-10">
-                <img class="border-1 br-50-per bg-primary" src="./avatar-13.png" alt="admin profile" width="60px" height="50px">
-            </div>
-            <div class="admin align-start p-5 br-5  pointer tab d-flex gap-10 w-100 fs-20" id="defaultOpen">
-                <i class="ri-admin-fill"></i>
-                <p>Admin</p>
-            </div>
-            <div class="students align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
-                <i class="ri-team-fill"></i>
-                <p>Student</p>
-            </div>
-            <div class="teachers align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
-                <i class="ri-presentation-fill"></i>
-                <p>Teacher</p>
-            </div>
-            <div class="courses align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
-                <i class="ri-book-open-fill"></i>
-                <p>Course</p>
-            </div>
-        </div>
-    </div>
-   
-    <div class="wrapper px-20 pt-20 d-flex align-center justify-content-center w-100">
-      <div class="formWrapper d-flex w-50 justify-content-between border-1">
-        <div class="description w-100 mx-20 mt-20">
-          <b>Login as Admin</b>
-          <p class="loginInstruction fs-20 mt-10"></p>
-          <p class="errorContainer mt-20"></p>
-        </div>
-        <div class="login-form w-100 mx-20 p-10">
-          <div class="form-group">
-            <b>Log In</b>
+          <div class="profile mt-10">
+            <img class="border-1 br-50-per bg-primary" src="./avatar-13.png" alt="admin profile" width="60px"
+              height="50px">
           </div>
-          <div class="form-group">
-            <div class="input-wrapper">
-              <input type="text" id="email" required>
-              <label for="email">Email</label>
-            </div>
+          <div class="admin align-start p-5 br-5  pointer tab d-flex gap-10 w-100 fs-20" id="defaultOpen">
+            <i class="ri-admin-fill"></i>
+            <p>Admin</p>
           </div>
-          
-          <div class="form-group">
-            <div class="input-wrapper">
-              <input type="password" id="password" required>
-              <label for="password">Password</label>
-              <div class="eyeIcon pointer">
-                <i class="ri-eye-line"></i>
+          <div class="students align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+            <i class="ri-team-fill"></i>
+            <p>Student</p>
+          </div>
+          <div class="teachers align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+            <i class="ri-presentation-fill"></i>
+            <p>Teacher</p>
+          </div>
+          <div class="courses align-start p-5 br-5 pointer tab d-flex gap-10 w-100 fs-20">
+            <i class="ri-book-open-fill"></i>
+            <p>Course</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper px-20 pt-20 d-flex align-center justify-content-center w-100">
+        <div class="formWrapper d-flex w-50 justify-content-between border-1">
+          <div class="description w-100 mx-20 mt-20">
+            <b>Login as Admin</b>
+            <p class="loginInstruction fs-20 mt-10"></p>
+            <p class="errorContainer mt-20"></p>
+          </div>
+          <div class="login-form w-100 mx-20 p-10">
+            <div class="form-group">
+              <b>Log In</b>
+            </div>
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input type="text" id="email" required>
+                <label for="email">Email</label>
               </div>
             </div>
-    
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+                <div class="eyeIcon pointer">
+                  <i class="ri-eye-line"></i>
+                </div>
+              </div>
+
+            </div>
+            <div class="d-flex align-center justify-content-between">
+              <button class="bg-primary" id="loginBtn">Log In</button>
+              <button class="bg-danger" id="closeBtn">Close</button>
+            </div>
+
           </div>
-          <div class="d-flex align-center justify-content-between">
-            <button class="bg-primary" id="loginBtn">Log In</button>
-            <button class="bg-danger" id="closeBtn">Close</button>
-          </div>
-    
-        </div>
-           <div id="openFormWrapper">
+          <div id="openFormWrapper">
             <div class="openFormBtnWrapper mx-20">
               <button class="w-100 bg-primary" id="openForm">Open Form</button>
             </div>
-           </div>
+          </div>
+        </div>
       </div>
-     </div>
     </div>
   </div>
   <script type="module" src="./js/login.js"></script>
   <script src="./js/variables.js"></script>
 </body>
+
 </html>

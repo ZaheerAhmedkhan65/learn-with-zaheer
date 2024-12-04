@@ -8,6 +8,9 @@ body{
 .d-flex{
     display: flex;
 }
+.flex-wrap{
+    flex-wrap: wrap;
+}
 .justify-content-between{
     justify-content: space-between;
 }
@@ -42,7 +45,7 @@ body{
 .color-danger{
     color: rgba(246, 8, 8, 0.935) !important;
 }
-.white{
+.color-white{
     color: white;
 }
 /* background colors */
@@ -333,6 +336,22 @@ body{
 .fs-25{
     font-size: 25px;
 }
+/* font weight */
+.fw-400{
+    font-weight: 400;
+}  
+.fw-500{    
+    font-weight: 500;        
+}
+.fw-700{
+    font-weight: 700;
+}  
+.fw-800{
+    font-weight: 800;
+}  
+.fw-900{
+    font-weight: 900;
+}
 /* positions */
 .position-absolute{
     position: absolute;
@@ -342,6 +361,9 @@ body{
 }
 .top-40{
     top: 40px;
+}
+.top-50{
+    top: 50px;
 }
 /* width */
 .w-100{

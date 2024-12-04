@@ -8,6 +8,7 @@ class Student extends Person{
       this.course = [];
       this.fee = fee;
       this.fee_status = fee_status;
+      this.attendences = [];
     }
     
   }

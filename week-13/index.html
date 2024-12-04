@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../week-12/schoolManagementSystem/styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,8 @@
 </head>
 
 <body>
-
     <div class="mainContainer">
-        <div class="notificationContainer d-flex align-center justify-content-end position-absolute top-40 right-0">
+        <div class="notificationContainer d-flex align-center justify-content-end position-absolute top-50 right-0">
             <div class="notification border-1 br-10 m-5 p-20 fs-20"></div>
         </div>
         <div class="topNav bg-primary py-10 pl-20 d-flex align-center justify-content-between">
@@ -76,36 +75,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="infoContainer  d-flex align-center gap-15 m-10">
-                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 white">
+                <div class="infoContainer  d-flex flex-wrap align-center gap-15 m-10">
+                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 color-white">
                         <p class="pb-10 pr-50 fs-20 boxHeader">Total Admins</p>
                         <div class="d-flex align-center justify-content-between py-10 boxFooter">
                             <i class="ri-presentation-fill fs-25"></i>
                             <b id="adminCount" class="fs-22">0</b>
                         </div>
                     </div>
-                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 white">
+                    <div class="teachersInfo box border-1 bg-info br-10 pt-20 pb-10 px-20 color-white">
                         <p class="pb-10 pr-50 fs-20 boxHeader">Total Teachers</p>
                         <div class="d-flex align-center justify-content-between py-10 boxFooter">
                             <i class="ri-presentation-fill fs-25"></i>
                             <b id="teacherCount" class="fs-22">0</b>
                         </div>
                     </div>
-                    <div class="studentsInfo box border-1 bg-success br-10 pt-20 pb-10 px-20 white">
+                    <div class="studentsInfo box border-1 bg-success br-10 pt-20 pb-10 px-20 color-white">
                         <p class="pb-10 pr-50 fs-20 boxHeader">Total Students</p>
                         <div class="d-flex align-center justify-content-between py-10 boxFooter">
                             <i class="ri-team-fill fs-25"></i>
                             <b id="studentCount" class="fs-22">0</b>
                         </div>
                     </div>
-                    <div class="coursesInfo box border-1 bg-warning br-10 pt-20 pb-10 px-20 white">
+                    <div class="coursesInfo box border-1 bg-warning br-10 pt-20 pb-10 px-20 color-white">
                         <p class="pb-10 pr-50 fs-20 boxHeader">Total Courses</p>
                         <div class="d-flex align-center justify-content-between py-10 boxFooter">
                             <i class="ri-book-open-fill fs-25"></i>
                             <b id="courseCount" class="fs-22">0</b>
                         </div>
                     </div>
-                    <div class="feeInfo box border-1 bg-danger br-10 pt-20 pb-10 px-20 white">
+                    <div class="feeInfo box border-1 bg-danger br-10 pt-20 pb-10 px-20 color-white">
                         <p class="pb-10 pr-50 fs-20 boxHeader">Total Fee</p>
                         <div class="d-flex align-center justify-content-between py-10 boxFooter">
                             <i class="ri-money-dollar-circle-line fs-25"></i>
@@ -113,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-               <div class="d-flex align-center gap-15 ml-10 mt-30">
+               <div class="d-flex align-center gap-15 mx-10 mt-30">
                     <button class="p-10 br-5 pointer" id="showAdmin">Show Admins</button>
                     <button class="p-10 br-5 pointer" id="addNewAdmin">Add New Admin</button>
                     <button class="p-10 br-5 pointer" id="removeAdmin">Remove Admin</button>
@@ -197,6 +196,7 @@
                 <button class="p-10 br-5 pointer" id="showStudents">Show Students</button>
                 <button class="p-10 br-5 pointer" id="addNewStudent">Add New Student</button>
                 <button class="p-10 br-5 pointer" id="removeStudent">Remove Student</button>
+                <button class="p-10 br-5 pointer" id="studentAttendence">studentAttendence</button>
             </div>
                 <div class="studentsList mt-40 mx-10"></div>
         </div>

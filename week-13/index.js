@@ -10,12 +10,12 @@ import { Attendence } from "./js/attendence.js";
 import { Exam } from "./js/exam.js";
 import { Grades } from "./js/grades.js";
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
   typeWriter();
-  updateTotalCount(studentCount,studentsDetail);// displays total students
-  updateTotalCount(teacherCount,teachersDetail);// displays total teachers
-  updateTotalCount(coursesCount,coursesDetail);// displays total courses
-  updateTotalCount(adminsCount,adminsDetail);// displays total admins
+  updateTotalCount(studentCount, studentsDetail);// displays total students
+  updateTotalCount(teacherCount, teachersDetail);// displays total teachers
+  updateTotalCount(coursesCount, coursesDetail);// displays total courses
+  updateTotalCount(adminsCount, adminsDetail);// displays total admins
 });
 
 addNewAdminBtn.addEventListener("click", () => togglePopUp(adminPopUpContainer, addAdminPopUp));
@@ -51,7 +51,7 @@ addNewAdmin.addEventListener("click", () => {
     "name"
   );
 
-  updateTotalCount(adminsCount,adminsDetail) //updates total admins
+  updateTotalCount(adminsCount, adminsDetail) //updates total admins
 
   const headers = ["Name", "Father Name", "Gender", "Date Of Birth", " Email", "Password"];
   createTable(adminList, adminsDetail, headers, (admin) => `
@@ -94,19 +94,7 @@ addNewStudent.addEventListener("click", () => {
     return;
   }
 
-  let studentFee;
-  let studentCourse;
-
-  for (let i = 0; i < coursesDetail.length; i++) {
-    if (studentGrade === coursesDetail[i].course_name) {
-      studentCourse = coursesDetail[i].course_name;
-      studentFee = coursesDetail[i].course_fee;
-      totalFee += studentFee;
-      updateFeeCount(feeCount, totalFee)
-    }
-  }
-
-  newStudent = new Student(capitalizeName(studentName), capitalizeName(studentFatherName), studentGender, studentDob, studentCourse, studentGrade, studentFee, "pending");
+  newStudent = new Student(capitalizeName(studentName), capitalizeName(studentFatherName), studentGender, studentDob,studentGrade,generateCourseFee(studentGrade),"pending");
   addNewEntity( //add student
     studentsDetail,
     newStudent,
@@ -116,7 +104,10 @@ addNewStudent.addEventListener("click", () => {
       dupStudent.gender === newStudent.gender,
     "name"
   );
-
+  //counts stududents fee
+  generateCourseFee(studentGrade);
+  updateStudentFee(generateCourseFee(studentGrade),"add");
+  updateFeeCount(feeCount, totalFee);
   updateTotalCount(studentCount, studentsDetail);//updates total students
 
   const headers = ["Roll Number", "Name", "Father Name", "Gender", "Date Of Birth", " Grade", "Fee", "Fee status"];
@@ -207,10 +198,10 @@ addNewCourse.addEventListener("click", () => {
     newCourse,
     dunCourse => dunCourse.course_name === newCourse.course_name &&
       dunCourse.course_duration === newCourse.course_duration &&
-      dunCourse.course_fee === newCourse.course_fee ,
-      "course_name"
+      dunCourse.course_fee === newCourse.course_fee,
+    "course_name"
   );
-  
+
   updateTotalCount(coursesCount, coursesDetail) //updates total courses
 
   const headers = ["Course Name", "Duration", "Course Fee"];
@@ -239,6 +230,7 @@ cancelAddNewCourseBtn.addEventListener("click", () => cancelPopUp(coursePopUpCon
 
 //Show Students
 showStudents.addEventListener("click", () => {
+  studentsList.innerHTML = '';
   if (studentsList.innerHTML == '') { // if table not created then 
     if (studentsDetail.length == 0) { // if no any student exist then return an error
       notify("color-danger", "No Student Exists in the List!");
@@ -258,13 +250,12 @@ showStudents.addEventListener("click", () => {
         </tr>
       `);
   }
-  else { // if table already created
-    studentsList.innerHTML = '';
-  }
+ else {studentsList.innerHTML ='';}
 });
 
 //Show Students
 showAdmin.addEventListener("click", () => {
+  adminList.innerHTML = ''
   if (adminList.innerHTML == '') { // if table not created then 
     if (adminsDetail.length == 0) { // if no any admin exist then return an error
       notify("color-danger", "No Admin Exists in the List!");
@@ -290,15 +281,13 @@ showAdmin.addEventListener("click", () => {
     `);
     // Admin Password hide and show
     showAdminPass();
-
   }
-  else { // if table already created
-    adminList.innerHTML = '';
-  }
+  else{adminList.innerHTML ='';}
 });
 
 //show Teachers
 showTeachers.addEventListener("click", () => {
+  teachersList.innerHTML = '';
   if (teachersList.innerHTML == '') {// if table not created then
     if (teachersDetail.length == 0) { // if no any teacher exist then return an error
       notify("color-danger", "No Teacher Exists in the List!");
@@ -319,13 +308,12 @@ showTeachers.addEventListener("click", () => {
       </tr>
     `);
   }
-  else {// if table already created
-    teachersList.innerHTML = '';
-  }
+  else{teachersList.innerHTML = '';}
 });
 
 //show Courses
 showCourses.addEventListener("click", () => {
+  coursesList.innerHTML = '';
   if (coursesList.innerHTML == '') {// if table not created then
     if (coursesDetail.length == 0) { // if no any course exist then return an error
       notify("color-danger", "No Course Exists in the List!");
@@ -340,19 +328,23 @@ showCourses.addEventListener("click", () => {
       </tr>
     `);
   }
-  else {
-    coursesList.innerHTML = '' // if table already created
-  }
-})
+  else{coursesList.innerHTML = '';}
+});
 
 
 // Remove Students
 removeStudent.addEventListener("click", () => {
-  renderEntities(
-    studentsList,
-    studentsDetail,
-    ["Roll No", "Name"],
-    (student) => `
+  studentsList.innerHTML = '';
+  if (studentsList.innerHTML == '') {// if table not created then
+    if (studentsDetail.length == 0) { // if no any course exist then return an error
+      notify("color-danger", "No Student Exists in the List!");
+      return;
+    }
+    renderEntities(
+      studentsList,
+      studentsDetail,
+      ["Roll No", "Name"],
+      (student) => `
         <tr>
           <td>${student.roll_no}</td>
           <td>${student.name}</td>
@@ -363,18 +355,27 @@ removeStudent.addEventListener("click", () => {
           </td>
         </tr>
       `,
+      "name",
       studentCount,
       studentsDetail
-  );
+    );
+  }
+  else{studentsList.innerHTML = '';}
 });
 
 // Remove admin
 removeAdmin.addEventListener("click", () => {
-  renderEntities(
-    adminList,
-    adminsDetail,
-    ["Name", "Email", "Password"],
-    (admin) => `
+  adminList.innerHTML = '';
+  if (adminList.innerHTML == '') {// if table not created then
+    if (adminsDetail.length == 0) { // if no any Admin exist then return an error
+      notify("color-danger", "No Admins Exists in the List!");
+      return;
+    }
+    renderEntities(
+      adminList,
+      adminsDetail,
+      ["Name", "Email", "Password"],
+      (admin) => `
         <tr>
           <td>${admin.name}</td>
           <td>${admin.email}</td>
@@ -393,20 +394,29 @@ removeAdmin.addEventListener("click", () => {
           </td>
         </tr>
       `,
+      "name",
       adminsCount,
       adminsDetail
-  );
+    );
+  }
+ else{adminList.innerHTML = '';}
   showAdminPass();
-  });
-  
+});
+
 
 // Remove Teachers
 removeTeacher.addEventListener("click", () => {
-  renderEntities(
-    teachersList,
-    teachersDetail,
-    ["ID", "Name"],
-    (teacher) => `
+  teachersList.innerHTML = '';
+  if (teachersList.innerHTML == '') {// if table not created then
+    if (teachersDetail.length == 0) { // if no any Teacher exist then return an error
+      notify("color-danger", "No Teacher Exists in the List!");
+      return;
+    }
+    renderEntities(
+      teachersList,
+      teachersDetail,
+      ["ID", "Name"],
+      (teacher) => `
       <tr>
         <td>${teacher.teacher_id}</td>
         <td>${teacher.name}</td>
@@ -417,18 +427,27 @@ removeTeacher.addEventListener("click", () => {
         </td>
       </tr>
     `,
-    teacherCount,
-    teachersDetail
-  );
+      "name",
+      teacherCount,
+      teachersDetail
+    );
+  }
+ else{teachersList.innerHTML = '';}
 });
 
 // Remove Courses
 removeCourse.addEventListener("click", () => {
-  renderEntities(
-    coursesList,
-    coursesDetail,
-    ["Course Name", "Duration", "Fee"],
-    (course) => `
+  coursesList.innerHTML = '';
+  if (coursesList.innerHTML == '') {// if table not created then
+    if (coursesDetail.length == 0) { // if no any Course exist then return an error
+      notify("color-danger", "No Course Exists in the List!");
+      return;
+    }
+    renderEntities(
+      coursesList,
+      coursesDetail,
+      ["Course Name", "Duration", "Fee"],
+      (course) => `
       <tr>
         <td>${course.course_name}</td>
         <td>${course.course_duration}</td>
@@ -439,10 +458,48 @@ removeCourse.addEventListener("click", () => {
           </div>
         </td>
       </tr>`,
+      "course_name",
       coursesCount,
       coursesDetail
-  );
+    );
+  }
+  else{coursesList.innerHTML = '';}
 });
 
+studentAttendence.addEventListener("click", () => {
+  studentsList.innerHTML = '';
+  if (studentsList.innerHTML == '' && is_attendeceMarked == false) {// if table not created then
+    if (studentsDetail.length == 0) { // if no any course exist then return an error
+      notify("color-danger", "No Student Exists in the List!");
+      return;
+    }
+    studentsDetail.forEach((student) => student.date = getCurrentDate());
+    studentsDetail.forEach((student) => student.status = "Absent");  
+    let headers = ["Roll No", "Name", "Grade", "Date","Status","Attendence"];
+    createAttendeceTable(studentsList, studentsDetail, headers, (student) => `
+      <tr>
+        <td>${student.roll_no}</td>
+        <td>${student.name}</td>
+        <td>${student.grade}</td>
+        <td>${student.date}</td>
+        <td>${student.status}</td>
+        <td class="d-flex align-center justify-content-between border-none">
+        <button class="present color-success">P</button>
+        <button class="absent color-danger">A</button>
+        </td>
+      </tr>
+    `);
+  } 
+  else{
+    studentsList.innerHTML = '';
+     notify("color-danger", "Attendence Already Marked!");  
+  }  
+});
 
-
+// for new attendence
+markAttendence = (status)=> {  
+  newAttendence = new Attendence(getCurrentDate(), status);
+  newAttendence.updateDate(getCurrentDate());
+  newAttendence.updateStatus(status);
+  notify("color-success", "Attendence Recorded Successfully!");
+}

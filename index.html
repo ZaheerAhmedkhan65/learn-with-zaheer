@@ -4,6 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="./resources/css/index.css">
+  <link rel="shortcut icon" href="/resources/img/computer-security-with-login-password.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Zaheer Ahmed</title>
@@ -30,7 +31,14 @@
       </div>
       <div class="main">
         <div id="Home" class="tabcontent">
-          <h2>Welcome To <a href="https://codewithinfinitiedev.online/" target="_blank">InfinitiDev</a></h2>
+          <div class="face-container">
+            <div class="face">
+              <div class="eyes">
+                  <div class="eye"></div>
+                  <div class="eye"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="Assignments" class="tabcontent">
@@ -188,5 +196,18 @@
     </footer>
   </div>
   <script src="./resources/js/index.js"></script>
+  <script>
+    document.querySelector('body').addEventListener('mousemove', eyeball);
+    function eyeball(){
+        var eye = document.querySelectorAll('.eye');
+        eye.forEach(function(eye){
+            var x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
+            var y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+            var radian = Math.atan2(event.pageX - x, event.pageY - y);
+            var rot = radian *(180 / Math.PI )* -1 + 270;
+            eye.style.transform = "rotate(" + rot + "deg)";
+        })  
+    }
+  </script>
 </body>
 </html>
